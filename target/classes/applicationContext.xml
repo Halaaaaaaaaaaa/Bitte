@@ -55,7 +55,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut expression="execution(* com.ezen.biz..*(..))" 
+		<aop:pointcut expression="execution(* com.bitte.biz..*(..))" 
 				id="txPointcut"/>
 		
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>

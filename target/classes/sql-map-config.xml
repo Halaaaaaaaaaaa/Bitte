@@ -4,11 +4,11 @@
 	<properties resource="database.properties">
 	</properties>
 	<typeAliases>
-		<typeAlias type="com.bitte.biz.dto.UserVO" alias="User"/>
+
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
 	<mappers>
-		<mapper resource="mappings/user-mapping.xml"/>
+		
 	</mappers>
 </configuration>
