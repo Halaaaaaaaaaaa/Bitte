@@ -12,8 +12,6 @@
 
 	<img alt="" src="img/main.jpg">
 
-
-
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
