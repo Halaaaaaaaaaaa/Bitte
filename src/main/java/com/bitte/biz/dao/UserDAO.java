@@ -12,12 +12,12 @@ public class UserDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	// 회원 id를 조건으로 사용자 정보 조회
+	//회원 id를 조건으로 사용자 정보 조회
 	public UserVO getUser(String id) {
 		return mybatis.selectOne("UserMapper.getUser", id);
 	}
 	
-	// 회원 존재 여부 조회
+	//회원 존재 여부 조회
 	public int confirmID(String id) {
 		String password = mybatis.selectOne("UserMapper.confirmID",id);
 		
@@ -41,4 +41,20 @@ public class UserDAO {
 		}
 		return result;
 	}
+	
+	//아이디 중복 검사
+	public int check_id(String id) throws Exception{
+		return mybatis.selectOne("UserMapper.check_id", id);
+	}
+		
+	//이메일 중복 검사
+	public int check_email(String email) throws Exception{
+		return mybatis.selectOne("UserMapper.check_email", email);
+	}
+	
+	//회원가입
+	public int joinUser(UserVO vo) {
+		return mybatis.insert("UserMapper.joinUser", vo);
+	}
+
 }

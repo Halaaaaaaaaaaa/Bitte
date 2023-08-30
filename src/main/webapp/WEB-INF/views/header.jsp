@@ -9,6 +9,7 @@
 <title>BITTE SCHÖN</title>
 <link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/homebase.css" />
+<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 	<header>
@@ -89,7 +90,7 @@
 								<div class="logout">
 									<input id="toggle-login" type="checkbox"></input> 
 									<label for="toggle-login" class="hamburger-login"> 
-										<a href="logout"><span>Logout</span></a>
+										<a href="logout" onClick="logoutClicked()"><span>Logout</span></a>
 									</label>
 								</div>
 							</c:otherwise>
