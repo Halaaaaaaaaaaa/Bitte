@@ -172,18 +172,27 @@ header {
 	z-index: 4;
 }
 
+/** 공지사항 **/
 .nav-wrapper {
 	position: relative;
-	overflow: hidden;
-	overflow-y: hidden;
+	overflow: auto;
+	overflow-y: auto;
 	height: 100%;
 }
 
-nav  {
+.nav-wrapper nav {
 	text-align: left;
-	margin: 2em auto 0 0.5em;
+	margin: 7em auto 0 1.5em;
+	font-size: 11px;
 }
-nav a  {
+
+
+/** 햄버거 메뉴 **/
+.nav-alt nav  {
+	text-align: left;
+	margin: 3.5em auto 0 1.5em;
+}
+.nav-alt nav a  {
 	position: relative;
 	text-decoration: none;
 	color: #3c3c3c;
@@ -193,7 +202,7 @@ nav a  {
 	transition: color 0.2s ease-in-out;
 	letter-spacing: 1px;
 }
-nav a:before  {
+.nav-alt nav a:before  {
 	content: '';
 	height: 0;
 	position: absolute;
@@ -202,6 +211,8 @@ nav a:before  {
 	left: -0.5em;
 	transition: all 0.2s ease-in-out;
 }
+
+
 
 /* Animations */
 #toggle:checked + .hamburger .top-bun  {

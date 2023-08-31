@@ -10,6 +10,7 @@
 <link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/homebase.css" />
 <script type="text/javascript" src="js/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<header>
@@ -41,7 +42,6 @@
 								</label>
 								<div class="nav-log" id="nav-login">
 									<div class="nav-wrapper-login">
-										
 										<form method="post" action="login">
 											<div class="group">
 												<input type="text" placeholder="아이디를 입력하세요" name="id">
@@ -105,7 +105,23 @@
 							</label>
 							<div class="nav" id="nav-notice">
 								<div class="nav-wrapper">
-									<nav>asdfasdgtaetastas</nav>
+									<nav>저희 쇼핑몰은 고객님의 특별한 쇼핑 경험을 위해 언제나 노력합니다.<br>
+										고객님을 위해 준비된 다양한 온라인 혜택 및 서비스를 경험해 보세요.<br><br>
+										01<br>
+										무료교환 온라인 구매의 특성상 제품을 직접 보고 구매하기 어렵기 때문에<br>
+										제품을 수령하신 수 사이즈, 컬러 교환을 원하실 경우 무료로 진행하고 있습니다.<br>
+										교환 및 반품은 제품 수령 후 7일 이내 접수가 가능하며, <br>
+										반품의 경우 반품배송비가 부과됩니다.<br>
+										자세한 내용은 자주 묻는 질문을 참고하세요.<br><br>
+										02<br>
+										주문 및 배송 신규가입시 10%할인 쿠폰이 자동 발급됩니다. <br>
+										7만원 이상 제품 구매 시 무료배송 서비스를 제공하며, <br>
+										예약배송 제품이 아닌 경우 오후 2시이전 결제 시 당일 출고 진행됩니다. <br>
+										배송은 지역 택배사 사정에 따라 약간의 지연이 생길 수 있습니다.<br><br>
+										03<br>
+										등급별 혜택을 제공합니다. 최근 6개월간의 결제내역을 반영하여<br>
+										매월 1일 새로운 회원등급이 부여됩니다.<br>
+										자세한 내용은 회원 혜택 안내를 참고하세요. <br><br>
 								</div>
 							</div>
 						</div>
@@ -122,7 +138,7 @@
 						<div class="nav-alt" id="nav-menu">
 							<div class="nav-wrapper-alt">
 								<nav>
-									<a href="#">HOME</a><br> 
+									<a href="#">SHOP</a><br> 
 									<a href="#">ABOUT</a><br> 
 									<a href="#">WORK</a><br> 
 									<a href="#">SERVICES</a>
@@ -134,6 +150,6 @@
 			</div>
 		</div>
 	</header>
-	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

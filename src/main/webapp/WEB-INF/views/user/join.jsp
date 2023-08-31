@@ -16,13 +16,13 @@
 </head>
 <body>
 	<div class="join-wrap">
-		<form id="join" action="join" method="post" onsubmit="return form_check()">
+		<form id="join" action="join" method="post">
 			<table>
 				<tr>
 					<th>아이디 (영문소문자/숫자 조합, 5~16자)</th>
 				</tr>
 				<tr>	
-					<td><input type="text" maxlength="16" name="id" id="id""></td>
+					<td><input type="text" maxlength="16" name="id" id="id"></td>
 				</tr>
 				<tr>	
 					<td><span id="id_check"></span></td>
@@ -31,28 +31,28 @@
 					<th>비밀번호 (영문 대소문자/숫자/특수문자 조합, 8자~16자)</th>
 				</tr>
 				<tr>	
-					<td><input type="password" maxlength="16" name="pwd" id="pwd" onkeyup="passwordCheckFunction()"></td>
+					<td><input type="password" maxlength="16" name="pwd" id="pwd" onkeyup="pwd_checkF()"></td>
 				</tr>
 				<tr>	
-					<td><span id="pwd_check"></span></td>
+					<td><span id="pwd_msg"></span></td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
 				</tr>
 				<tr>	
-					<td><input type="password" maxlength="16" name="repwd" class="repwd" id="repwd" onkeyup="passwordCheckFunction()"></td>
+					<td><input type="password" maxlength="16" name="repwd" id="repwd" onkeyup="pwd_checkF()"></td>
 				</tr>
 				<tr>	
-					<td><span id="repwd_check"></span></td>
+					<td><span id="repwd_msg"></span></td>
 				</tr>
 				<tr>
 					<th>이름</th>
 				</tr>
 				<tr>	
-					<td><input type="text" maxlength="10" name="name" id="name"></td>
+					<td><input type="text" maxlength="10" name="name" id="name" onkeyup="name_checkF()"></td>
 				</tr>
 				<tr>	
-					<td><span id="name_check"></span></td>
+					<td><span id="name_msg"></span></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
@@ -67,10 +67,10 @@
 					<th>핸드폰</th>
 				</tr>
 				<tr>	
-					<td><input type="text" maxlength="50" name="phone" id="phone" oninput="hypenTel(this)"></td>
+					<td><input type="text" maxlength="50" name="phone" id="phone" onkeyup="phone_checkF()" oninput="hypenTel(this)"></td>
 				</tr>
 				<tr>	
-					<td><span id="phone_check"></span></td>
+					<td><span id="phone_msg"></span></td>
 				</tr>
 				<tr>
 					<th>주소</th>

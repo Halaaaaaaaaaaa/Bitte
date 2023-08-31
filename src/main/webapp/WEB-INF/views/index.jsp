@@ -7,6 +7,8 @@
 	<title>BITTE SCHÖN</title>
 	<link rel="shortcut icon" href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/homebase.css">
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
