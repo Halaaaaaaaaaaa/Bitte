@@ -30,7 +30,7 @@ header {
 
 #main_logo {
 	width: 16rem;
-	margin-top: 0.2em;
+	margin: 0.3em auto 0 1em;
 }
 
 .sub_navi {
@@ -245,7 +245,7 @@ header {
 
 /** login **/
 .nav-wrapper-login {
-	margin: 5em auto auto 1.5em;
+	margin: 5em auto auto 2em;
 }
 
 .group { 
@@ -414,7 +414,6 @@ header {
 	margin: 3em 8em 0 auto;
 }
 
-
 /** footer **/
 .footer {margin-top: 1em;}
 
@@ -422,7 +421,7 @@ header {
 	display:flex;
 	flex-wrap: wrap;
 }
-.footer-alt {margin-left: 1em;}
+.footer-alt {margin-left: 2em;}
 
 .footer_logo {width: 7em;}
 

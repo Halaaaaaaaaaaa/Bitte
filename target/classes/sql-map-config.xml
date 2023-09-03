@@ -5,10 +5,12 @@
 	</properties>
 	<typeAliases>
 		<typeAlias type="com.bitte.biz.dto.UserVO" alias="User"/>
+		<typeAlias type="com.bitte.biz.dto.Total_shopVO" alias="Total_shop"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
 	<mappers>
 		<mapper resource="mappings/user-mapping.xml"/>
+		<mapper resource="mappings/total_shop-mapping.xml"/>
 	</mappers>
 </configuration>
