@@ -138,7 +138,7 @@
 						<div class="nav-alt" id="nav-menu">
 							<div class="nav-wrapper-alt">
 								<nav>
-									<a href="#">SHOP</a><br> 
+									<a href="total_shop_main">SHOP</a><br> 
 									<a href="#">ABOUT</a><br> 
 									<a href="#">WORK</a><br> 
 									<a href="#">SERVICES</a>

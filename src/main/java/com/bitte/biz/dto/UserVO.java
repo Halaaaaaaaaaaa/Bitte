@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserVO {
-	//회원 컬럼명 : 아이디, 비번, 이름, 이메일, 폰번호, 주소, 등급, 가입일, 아이디 중복체크
+	//회원 컬럼명 : 아이디, 비번, 이름, 이메일, 폰번호, 주소, 등급, 가입일
 	private String id;
 	private String pwd;
 	private String name;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -25,6 +24,12 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	//회원가입 화면
+	@GetMapping("/join_form")
+	public String joinForm() {
+		return "user/join";
+	}
 	
 	// 로그인 처리
 	@PostMapping("/login")
@@ -48,12 +53,6 @@ public class UserController {
 	public String logout(SessionStatus status) {
 			status.setComplete();
 		return "index";
-	}
-	
-	//회원가입 화면
-	@GetMapping("/join_form")
-	public String joinForm() {
-		return "user/join";
 	}
 	
 	// 아이디 중복 검사(AJAX)

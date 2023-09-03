@@ -7,6 +7,7 @@ function logoutClicked() {
     }
 }
 
+/* header menu close event
 document.addEventListener("DOMContentLoaded", function() {
     const loginToggle = document.getElementById("toggle-login");
     const noticeToggle = document.getElementById("toggle-notice");
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
             loginToggle.checked = false;
             noticeToggle.checked = false;
             menuToggle.checked = false;
-        }
+        } 
     });
 
     // 토글 요소 클릭 시
@@ -37,6 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         event.stopPropagation(); // 이벤트 전파 방지
     });
 });
-
+*/
 
 
