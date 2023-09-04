@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bitte.biz.dto.ShopVO;
 import com.bitte.biz.dto.Total_shopVO;
 
 @Repository
@@ -20,12 +21,12 @@ public class Total_shopDAO {
 	}
 	
 	//쇼핑 메인화면 카테고리별 리스트
-	public List<Total_shopVO> total_shopList(Total_shopVO vo) {
-		return mybatis.selectList("Total_shopMapper.total_shopList",vo);
+	public List<Total_shopVO> total_shopList(String p_category) {
+		return mybatis.selectList("Total_shopMapper.total_shopList",p_category);
 	}
 	
 	//쇼핑 디테일
-	public Total_shopVO total_shopDetail(Total_shopVO vo) {
+	public ShopVO total_shopDetail(ShopVO vo) {
 		return mybatis.selectOne("Total_shopMapper.total_shopDetail",vo);
 	}
 

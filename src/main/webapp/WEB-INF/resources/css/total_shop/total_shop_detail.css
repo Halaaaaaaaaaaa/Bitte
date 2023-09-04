@@ -49,15 +49,9 @@ body {
 	text-align: center;
 }
 
-.shopProduct a{
-	cursor: pointer;
-	text-decoration: none;
-	color: #3c3c3c;
-}
-
 .shopProduct-list{
 	display: inline-block; 
-	margin: 25px;
+	margin: 50px;
 }
 
 .shopProduct-span{
@@ -67,6 +61,6 @@ body {
 .shopProduct-span div{margin:5px auto;}
 
 .img{
-	width:400px;
-	height: 533px;
+	width:450px;
+	height: 560px;
 }

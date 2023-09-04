@@ -2,21 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Total_shopMapper" >
 	<!-- 쇼핑 메인화면 all 리스트 -->
-	<select id="total_shopAllList" resultType="Total_shop">
-		SELECT * FROM total_shop
+	<select id="total_shopAllList" resultMap="Shop">
+		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img
+		FROM total_shop a, product_color b
+		WHERE a.p_code = b.p_code
+		ORDER BY p_code DESC
 	</select>
 	
 	<!-- 쇼핑 메인화면 카테고리별 리스트 -->
-	<select id="total_shopList" resultType="Total_shop">
-		SELECT * FROM total_shop 
-		WHERE p_category = #{p_category}
+	<select id="total_shopList" resultMap="Shop">
+		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img
+		FROM total_shop a, product_color b
+		WHERE a.p_code = b.p_code
+			AND p_category = #{p_category}
+		ORDER BY p_code DESC
 	</select>
 	
 	<!-- 쇼핑 디테일 -->
-	<select id="total_shopDetail" resultType="Total_shop">
-		SELECT * FROM total_shop
-		WHERE p_code = #{p_code}
+	<select id="total_shopDetail" resultMap="Shop">
+		<!-- SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, c.p_size, c.p_size_stock, c.p_size_sell
+		FROM total_shop a, product_color b, product_size c
+		WHERE a.p_code = b.p_code AND a.p_code = c.p_code AND c.p_code = b.p_code
+		    AND a.p_code = #{p_code} AND a.p_name = #{p_name} AND b.p_color = #{p_color} -->
+		SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img
+		FROM total_shop a, product_color b
+		WHERE a.p_code = b.p_code
+		    AND a.p_code = #{p_code} AND a.p_name = #{p_name} AND b.p_color = #{p_color}
 	</select>
 
+
+	
+	<!-- ShopVO -->
+	<resultMap type="com.bitte.biz.dto.ShopVO" id="Shop">
+	    <id property="p_code" column="p_code" />
+	    <result property="p_category" column="p_category" />
+	    <result property="p_name" column="p_name" />
+	    <result property="p_price" column="p_price" />
+	    <result property="p_regdate" column="p_regdate" />
+	    <result property="p_color" column="p_color" />
+	    <result property="p_color_stock" column="p_color_stock" />
+	    <result property="p_color_sell" column="p_color_sell" />
+	    <result property="p_img" column="p_img" />
+	    <result property="p_size" column="p_size" />
+	    <result property="p_size_stock" column="p_size_stock" />
+	    <result property="p_size_sell" column="p_size_sell" />
+	</resultMap>
 		
 </mapper>
