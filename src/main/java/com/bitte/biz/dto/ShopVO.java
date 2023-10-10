@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class ShopVO {
-	//컬럼명 : 상품코드, 상품분류번호, 상품명, 상품가격, 상품등록일, 상품색상, 상품재고량, 상품판매량, 상품이미지
+	//컬럼명 : 상품코드, 상품분류번호, 상품명, 상품가격, 상품등록일, 상품색상, 상품재고량, 상품판매량, 상품이미지, 상품디테일이미지
     private int p_code;
     private int p_category;
     private String p_name;

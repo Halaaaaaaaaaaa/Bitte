@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Product_colorVO {
+public class ProductColorVO {
 	//컬럼명 : 상품코드, 상품 색상, 상품재고량, 상품판매량
 	private int p_code;
     private String p_color;

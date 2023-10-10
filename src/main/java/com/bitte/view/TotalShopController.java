@@ -12,25 +12,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.bitte.biz.dto.ShopVO;
-import com.bitte.biz.dto.Total_shopVO;
+import com.bitte.biz.dto.TotalShopVO;
 import com.bitte.biz.dto.UserVO;
-import com.bitte.biz.service.Total_shopService;
+import com.bitte.biz.service.TotalShopService;
 
 
 @Controller
-public class Total_shopController {
+public class TotalShopController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(Total_shopController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TotalShopController.class);
 	
 	@Autowired
-	private Total_shopService total_shopService;
+	private TotalShopService totalShopService;
 	
 	//쇼핑 메인화면 상품 전체 리스트
 	@GetMapping(value = "/total_shop_main")
-	public String shopMain(Total_shopVO vo, Model model) {
-		List<Total_shopVO> total_shopAllList = total_shopService.total_shopAllList(vo);
+	public String shopMain(TotalShopVO vo, Model model) {
+		List<TotalShopVO> total_shopAllList = totalShopService.total_shopAllList(vo);
 		model.addAttribute("total_shopAllList", total_shopAllList);
-		logger.info("Total_shopVO : " + vo.toString());
+		logger.info("TotalShopVO : " + vo.toString());
 		logger.info("total_shopAllList : " + vo.toString());
 		
 		return "total_shop/total_shop_main";
@@ -38,10 +38,10 @@ public class Total_shopController {
 	
 	//쇼핑 메인화면 상품 카테고리별 리스트
 	@GetMapping(value = "/total_shop_category")
-	public String shopMain_category(Total_shopVO vo, Model model) {
-		List<Total_shopVO> total_shopList = total_shopService.total_shopList(vo.getP_category());
+	public String shopMain_category(TotalShopVO vo, Model model) {
+		List<TotalShopVO> total_shopList = totalShopService.total_shopList(vo.getP_category());
 		model.addAttribute("total_shopList", total_shopList);
-		logger.info("Total_shopVO : " + vo.toString());
+		logger.info("TotalShopVO : " + vo.toString());
 		logger.info("total_shopList : " + vo.toString());
 		
 		return "total_shop/total_shop_category";
@@ -53,7 +53,7 @@ public class Total_shopController {
 
 		UserVO uservo = (UserVO) session.getAttribute("loginUser");
 
-		ShopVO shop_detail = total_shopService.total_shopDetail(vo);
+		ShopVO shop_detail = totalShopService.total_shopDetail(vo);
 		
 		model.addAttribute("uservo", uservo);
 		model.addAttribute("shop_detail", shop_detail);

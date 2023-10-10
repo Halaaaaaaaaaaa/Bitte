@@ -7,21 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bitte.biz.dto.ShopVO;
-import com.bitte.biz.dto.Total_shopVO;
+import com.bitte.biz.dto.TotalShopVO;
 
 @Repository
-public class Total_shopDAO {
+public class TotalShopDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	//쇼핑 메인화면 all 리스트
-	public List<Total_shopVO> total_shopAllList(Total_shopVO vo) {
+	public List<TotalShopVO> total_shopAllList(TotalShopVO vo) {
 		return mybatis.selectList("Total_shopMapper.total_shopAllList",vo);
 	}
 	
 	//쇼핑 메인화면 카테고리별 리스트
-	public List<Total_shopVO> total_shopList(String p_category) {
+	public List<TotalShopVO> total_shopList(String p_category) {
 		return mybatis.selectList("Total_shopMapper.total_shopList",p_category);
 	}
 	

@@ -5,9 +5,9 @@
 	</properties>
 	<typeAliases>
 		<typeAlias type="com.bitte.biz.dto.UserVO" alias="User"/>
-		<typeAlias type="com.bitte.biz.dto.Total_shopVO" alias="Total_shop"/>
-		<typeAlias type="com.bitte.biz.dto.Product_colorVO" alias="Product_color"/>
-		<typeAlias type="com.bitte.biz.dto.Product_sizeVO" alias="Product_size"/>
+		<typeAlias type="com.bitte.biz.dto.TotalShopVO" alias="Total_shop"/>
+		<typeAlias type="com.bitte.biz.dto.ProductColorVO" alias="Product_color"/>
+		<typeAlias type="com.bitte.biz.dto.ProductSizeVO" alias="Product_size"/>
 		<typeAlias type="com.bitte.biz.dto.ShopVO" alias="Shop"/>
 	</typeAliases>
 	
