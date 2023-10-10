@@ -42,19 +42,11 @@ create table total_shop (
 
 select * from total_shop;
 
-
-
 insert into total_shop(p_category, p_name, p_price) values(1, 'fall coate', '110,000');
 insert into total_shop(p_category, p_name, p_price) values(2, 'fall top', '90,000');
 insert into total_shop(p_category, p_name, p_price) values(3, 'fall bottom', '80,000');
 insert into total_shop(p_category, p_name, p_price) values(4, 'fall dress', '89,000');
 insert into total_shop(p_category, p_name, p_price) values(5, 'fall bag', '140,000');
--- insert into total_shop(p_code, p_category, p_name, p_price, p_img) values(pCode.NEXTVAL, 1, 'fall coate', '110,000', '가을 코트');
--- insert into total_shop(p_code, p_category, p_name, p_price, p_img) values(pCode.NEXTVAL, 2, 'fall top', '90,000', '가을 상의');
--- insert into total_shop(p_code, p_category, p_name, p_price, p_img) values(pCode.NEXTVAL, 3, 'fall bottom', '80,000', '가을 하의');
--- insert into total_shop(p_code, p_category, p_name, p_price, p_img) values(pCode.NEXTVAL, 4, 'fall dress', '89,000', '가을 드레스');
--- insert into total_shop(p_code, p_category, p_name, p_price, p_img) values(pCode.NEXTVAL, 5, 'fall bag', '140,000', '가을 백');
-
 ----------------------------------------------------------------------------------------
 -- 색상별 상품 테이블
 -- 컬럼: 상품코드, 상품 색상, 상품재고량, 상품판매량
@@ -79,31 +71,6 @@ create table product_size (
     p_size_sell int,
         constraint fk_size_pcode foreign key(p_code) references total_shop(p_code)
 );
-
-select * from product_size order by p_code;
-
--- a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_stock, b.p_sell, b.p_img, c.p_size, c.p_stock, c.p_sell
-select a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img
-from  total_shop a, product_color b
-where a.p_code = b.p_code
-ORDER BY a.p_code DESC;
-
-
-SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, c.p_size, c.p_size_stock, c.p_size_sell
-		FROM total_shop a, product_color b, product_size c
-		WHERE a.p_code = b.p_code AND a.p_code = c.p_code AND c.p_code = b.p_code
-			AND p_category = '1' AND b.p_color = 'black' AND c.p_size = 'S'
-		ORDER BY p_code DESC;
-
--- SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img, c.p_size, c.p_size_stock, c.p_size_sell
---		FROM total_shop a, product_color b, product_size c
---		WHERE a.p_code = b.p_code AND a.p_code = c.p_code AND c.p_code = b.p_code
---		    AND a.p_code = '1' AND a.p_name = 'Fall Coat' AND b.p_color = 'black';
-
-SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img
-		FROM total_shop a, product_color b
-		WHERE a.p_code = b.p_code
-		    AND a.p_code = '1' AND a.p_name = 'Fall Coat' AND b.p_color = 'black';
 
 insert into product_color values ('1', 'brouwn', '15', '0', 'coat_brown');
 insert into product_color values ('1', 'black', '20', '0', 'coat_black');
