@@ -12,15 +12,28 @@
     <script type="text/javascript" src="js/total_shop/shop.js"></script>
 </head>
 <body>
-    <div>   
-    	<div>
-	    	<img class="img" src="img/total_shop/${shop_detail.p_img}.jpg"><br>
+	<div>   
+		<div class="detail-product">
 			<div class="shopProduct-span">
 				<div>${shop_detail.p_name}_${shop_detail.p_color}</div>
 				<div>${shop_detail.p_price}</div>
+				<div>
+					<p>사이즈</p>
+					<select name="size">
+						<option value='' selected> -- [필수] 옵션을 선택하세요 -- </option>
+						<option value='S'>S</option>
+						<option value='M'>M</option>
+						<option value='L'>L</option>
+					</select>
+				</div>
+				<div>
+					<button>구매하기</button>
+				</div>
+			</div>
+			<div class="shopProduct-img">
+				<img class="img" src="img/total_shop/${shop_detail.p_img}.jpg"><br>
 			</div>
 		</div>
-		
 	</div>
 
     <%@ include file="../footer.jsp"%>

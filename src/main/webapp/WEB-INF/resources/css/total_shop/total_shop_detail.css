@@ -43,8 +43,12 @@ body {
 .shopMenu-bar a:active,
 .shopMenu-bar a:visited{font-weight:bold}
 
+/**상품 detail**/
+.detail-product {
+	display: flex;
+}
 
-/** 상품 나열 **/
+/**상품 설명**/
 .shopProduct{
 	text-align: center;
 }
@@ -56,10 +60,15 @@ body {
 
 .shopProduct-span{
 	text-align: left;
+	display: fix;
 }
 
 .shopProduct-span div{margin:5px auto;}
 
+/**상품 이미지**/
+.shopProduct-img {
+	margin: auto;
+}
 .img{
 	width:450px;
 	height: 560px;
