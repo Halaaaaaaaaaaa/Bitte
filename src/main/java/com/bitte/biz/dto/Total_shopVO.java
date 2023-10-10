@@ -17,8 +17,6 @@ public class Total_shopVO {
 	private String p_category;
 	private String p_name;
 	private String p_price;
-	private String p_img;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date p_regdate;
-	
 }

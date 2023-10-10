@@ -3,7 +3,7 @@
 <mapper namespace="Total_shopMapper" >
 	<!-- 쇼핑 메인화면 all 리스트 -->
 	<select id="total_shopAllList" resultMap="Shop">
-		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img
+		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, b.p_img_detail
 		FROM total_shop a, product_color b
 		WHERE a.p_code = b.p_code
 		ORDER BY p_code DESC
@@ -11,7 +11,7 @@
 	
 	<!-- 쇼핑 메인화면 카테고리별 리스트 -->
 	<select id="total_shopList" resultMap="Shop">
-		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img
+		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, b.p_img_detail
 		FROM total_shop a, product_color b
 		WHERE a.p_code = b.p_code
 			AND p_category = #{p_category}
@@ -20,14 +20,12 @@
 	
 	<!-- 쇼핑 디테일 -->
 	<select id="total_shopDetail" resultMap="Shop">
-		<!-- SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, c.p_size, c.p_size_stock, c.p_size_sell
-		FROM total_shop a, product_color b, product_size c
-		WHERE a.p_code = b.p_code AND a.p_code = c.p_code AND c.p_code = b.p_code
-		    AND a.p_code = #{p_code} AND a.p_name = #{p_name} AND b.p_color = #{p_color} -->
-		SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img
+		SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img, b.p_img_detail
 		FROM total_shop a, product_color b
 		WHERE a.p_code = b.p_code
-		    AND a.p_code = #{p_code} AND a.p_name = #{p_name} AND b.p_color = #{p_color}
+		    AND a.p_code = #{p_code} 
+		    AND a.p_name = #{p_name} 
+		    AND b.p_color = #{p_color} 
 	</select>
 
 
@@ -46,6 +44,7 @@
 	    <result property="p_size" column="p_size" />
 	    <result property="p_size_stock" column="p_size_stock" />
 	    <result property="p_size_sell" column="p_size_sell" />
+	    <result property="p_img_detail" column="p_img_detail" />
 	</resultMap>
 		
 </mapper>

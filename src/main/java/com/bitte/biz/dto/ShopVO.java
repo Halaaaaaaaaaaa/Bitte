@@ -22,5 +22,5 @@ public class ShopVO {
     private String p_size;
     private int p_size_stock;
     private int p_size_sell;
-    
+    private String p_img_detail;
 }

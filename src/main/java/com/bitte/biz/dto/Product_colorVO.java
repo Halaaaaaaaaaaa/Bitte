@@ -14,5 +14,5 @@ public class Product_colorVO {
     private int p_stock;
     private int p_sell;
     private String p_img;
-	
+    private String p_img_detail;
 }

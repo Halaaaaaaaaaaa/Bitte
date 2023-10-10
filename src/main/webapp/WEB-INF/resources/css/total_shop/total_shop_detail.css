@@ -60,7 +60,9 @@ body {
 
 .shopProduct-span{
 	text-align: left;
-	display: fix;
+	position: fixed;
+	margin-left: 3%;
+	margin-top: 50px;
 }
 
 .shopProduct-span div{margin:5px auto;}
@@ -69,7 +71,9 @@ body {
 .shopProduct-img {
 	margin: auto;
 }
-.img{
-	width:450px;
-	height: 560px;
+
+#imgPoster_d, #imgDetail_d {
+	width: 500px;
 }
+
+

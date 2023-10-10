@@ -43,8 +43,8 @@
 				<div class="shopProduct-list">
 					<a href="total_shop_detail?p_code=${total_shop.p_code}&p_name=${total_shop.p_name}&p_color=${total_shop.p_color}"><img class="img" src="img/total_shop/${total_shop.p_img}.jpg"></a><br>
 					<div class="shopProduct-span">
-						<div><a href="total_shop_detail?p_code=${total_shop.p_code}&p_name=${total_shop.p_name}&p_color=${total_shop.p_color}">${total_shop.p_name}_${total_shop.p_color}</a></div>
-						<div><a href="total_shop_detail?p_code=${total_shop.p_code}&p_name=${total_shop.p_name}&p_color=${total_shop.p_color}">${total_shop.p_price}</a></div>
+						<div><a href="total_shop_detail?p_code=${total_shop.p_code}&p_name=${total_shop.p_name}&p_color=${total_shop.p_color}&p_price=${total_shop.p_price}">${total_shop.p_name}_${total_shop.p_color}</a></div>
+						<div><a href="total_shop_detail?p_code=${total_shop.p_code}&p_name=${total_shop.p_name}&p_color=${total_shop.p_color}&p_price=${total_shop.p_price}">${total_shop.p_price}</a></div>
 					</div>
 				</div>
 				<c:if test="${loop.index % 2 == 1}">

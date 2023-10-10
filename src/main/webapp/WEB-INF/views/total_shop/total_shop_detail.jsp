@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="css/total_shop/total_shop_detail.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/total_shop/shop.js"></script>
 </head>
 <body>
+
 	<div>   
 		<div class="detail-product">
 			<div class="shopProduct-span">
@@ -27,14 +27,21 @@
 					</select>
 				</div>
 				<div>
-					<button>구매하기</button>
+					<button>BUY NOW</button>
+					<button>ADD TO CART</button>
 				</div>
 			</div>
 			<div class="shopProduct-img">
-				<img class="img" src="img/total_shop/${shop_detail.p_img}.jpg"><br>
+				<div class="imgPoster">
+					<img src="img/total_shop/${shop_detail.p_img}.jpg" id="imgPoster_d">
+				</div>
+			    <div class="imgDetail">
+			    	<img src="img/total_shop/${shop_detail.p_img_detail}.jpg" id="imgDetail_d"><br>
+				</div>
 			</div>
 		</div>
 	</div>
+	 
 
     <%@ include file="../footer.jsp"%>
 </body>
