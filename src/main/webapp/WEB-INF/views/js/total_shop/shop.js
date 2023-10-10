@@ -10,7 +10,7 @@ $(document).ready(function() {
 		// AJAX 요청 보내기
 		$.ajax({
 			type: "GET",
-			url: "total_shop_category?p_category=" + category,
+			url: "totalShopCategory?p_category=" + category,
 			success: function(response) {
 				// total_shop_category.jsp의 내용을 로드하여 .shopProduct에 삽입
 				$(".shopProduct").html(response);

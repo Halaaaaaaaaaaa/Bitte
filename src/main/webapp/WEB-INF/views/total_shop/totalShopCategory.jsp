@@ -15,10 +15,10 @@
         <div class="shopProduct">
             <c:forEach items="${total_shopList}" var="shop_category" varStatus="loop">
                 <div class="shopProduct-list">
-                    <a href="total_shop_detail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}"><img class="img" src="img/total_shop/${shop_category.p_img}.jpg"></a><br>
+                    <a href="totalShopDetail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}"><img class="img" src="img/total_shop/${shop_category.p_img}.jpg"></a><br>
                     <div class="shopProduct-span">
-                        <div><a href="total_shop_detail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}">${shop_category.p_name}_${shop_category.p_color}</a></div>
-                        <div><a href="total_shop_detail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}">${shop_category.p_price}</a></div>
+                        <div><a href="totalShopDetail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}">${shop_category.p_name}_${shop_category.p_color}</a></div>
+                        <div><a href="totalShopDetail?p_code=${shop_category.p_code}&p_name=${shop_category.p_name}&p_color=${shop_category.p_color}">${shop_category.p_price}</a></div>
                     </div>
                 </div>
                 <c:if test="${loop.index % 2 == 1}">

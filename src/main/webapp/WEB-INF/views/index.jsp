@@ -11,7 +11,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<a href="total_shop_main" >
+	<a href="totalShopMain" >
 		<img alt="" src="img/main.jpg">
 	</a>
 	<%@ include file="footer.jsp"%>

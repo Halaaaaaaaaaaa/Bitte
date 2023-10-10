@@ -26,29 +26,29 @@ public class TotalShopController {
 	private TotalShopService totalShopService;
 	
 	//쇼핑 메인화면 상품 전체 리스트
-	@GetMapping(value = "/total_shop_main")
+	@GetMapping(value = "/totalShopMain")
 	public String shopMain(TotalShopVO vo, Model model) {
 		List<TotalShopVO> total_shopAllList = totalShopService.total_shopAllList(vo);
 		model.addAttribute("total_shopAllList", total_shopAllList);
 		logger.info("TotalShopVO : " + vo.toString());
 		logger.info("total_shopAllList : " + vo.toString());
 		
-		return "total_shop/total_shop_main";
+		return "total_shop/totalShopMain";
 	}
 	
 	//쇼핑 메인화면 상품 카테고리별 리스트
-	@GetMapping(value = "/total_shop_category")
+	@GetMapping(value = "/totalShopCategory")
 	public String shopMain_category(TotalShopVO vo, Model model) {
 		List<TotalShopVO> total_shopList = totalShopService.total_shopList(vo.getP_category());
 		model.addAttribute("total_shopList", total_shopList);
 		logger.info("TotalShopVO : " + vo.toString());
 		logger.info("total_shopList : " + vo.toString());
 		
-		return "total_shop/total_shop_category";
+		return "total_shop/totalShopCategory";
 	}
     
 	//쇼핑 디테일 화면
-	@GetMapping("/total_shop_detail")
+	@GetMapping("/totalShopDetail")
 	public String shopdetail(Model model, ShopVO vo, HttpSession session) {
 
 		UserVO uservo = (UserVO) session.getAttribute("loginUser");
@@ -61,7 +61,7 @@ public class TotalShopController {
 		logger.info("ShopVO : " + vo.toString());
 		logger.info("shop_detail : " + vo.toString());
 		
-		return "total_shop/total_shop_detail";
+		return "total_shop/totalShopDetail";
 	}
 	
 
