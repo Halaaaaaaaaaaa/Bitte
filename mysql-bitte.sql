@@ -101,6 +101,7 @@ insert into product_color values ('4', 'ivory', '27', '0', 'dress_ivory', 'dress
 insert into product_color values ('4', 'black', '29', '0', 'dress_black', 'dress_black_d');
 insert into product_color values ('5', 'red', '31', '0', 'bag_red', 'bag_red_d');
 insert into product_color values ('5', 'black', '32', '0', 'bag_black', 'bag_black_d');
+insert into product_color values ('5', 'brown', '33', '0', 'bag_brown', 'bag_brown_d');
 insert into product_size values ('1', 'S', '3', '0');
 insert into product_size values ('1', 'M', '8', '0');
 insert into product_size values ('1', 'L', '10', '0');
