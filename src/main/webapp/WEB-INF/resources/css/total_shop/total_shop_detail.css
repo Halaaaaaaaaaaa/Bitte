@@ -46,6 +46,7 @@ body {
 /**상품 detail**/
 .detail-product {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 /**상품 설명**/
@@ -58,14 +59,142 @@ body {
 	margin: 50px;
 }
 
-.shopProduct-span{
-	text-align: left;
-	position: fixed;
-	margin-left: 3%;
-	margin-top: 50px;
+.shopProduct-span {
+    text-align: left;
+    margin-left: 3%;
+    margin-top: 50px;
+    width: 300px;
+    position: sticky;
+    top: 74px;
+    z-index: 1000;
+    margin-bottom: 10px;
 }
 
-.shopProduct-span div{margin:5px auto;}
+.shopProduct-span button {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+}
+
+.shopProduct-span .buy {
+	background-color: #4caf50; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.shopProduct-span .cart {
+	background-color: rgba(0, 0, 255, 0);
+    color: black;
+    border-color: black;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.shopProduct-span p{margin-bottom:8px;}
+
+.shopProduct-span select {
+	width: 100%;
+	height: 45px;
+	background-color: rgba(0, 0, 255, 0);
+}
+
+
+/**accodion**/
+* {padding:0;margin:0;}
+
+.accodion-container {border-top:1px solid #333;}
+
+.accodion-header {
+	font-size:15px;
+	font-family:'맑은 고딕','Malgun Gothic',sans-serif;
+	padding:15px;
+	border-bottom:1px solid #ddd;
+	cursor:pointer;
+	line-height:25px;
+}
+
+.accodion-header bold {font-weight:700;}
+
+.accodion-content {
+	display:none;
+	padding:20px;
+	border-bottom:1px solid #ddd;
+	background-color:#f5f5f5;
+	font-size:15px;
+	font-family:'맑은 고딕','Malgun Gothic',sans-serif;
+	line-height:25px;
+}
+
+.active-header {
+	display:block;
+	background:url('http://home.spectra.co.kr/~sas/demo/images/top_select_arrows_top.png')no-repeat right center;
+}
+
+.inactive-header {
+	display:block;
+	background:url('http://home.spectra.co.kr/~sas/demo/images/top_select_arrows_bottom.png')no-repeat right center;
+}
+
+.accodion-header {
+    font-size: 15px;
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    line-height: 25px;
+    position: relative; /* 부모로부터 상대 위치 설정 */
+}
+
+.accodion-header b::before {
+    content: '+';
+    position: absolute;
+    right: 10px;
+    transition: all 0.3s ease-in-out; 
+    top: 11px;
+    font-size: 20px;
+}
+
+.accodion-header.active-header b::before {
+    transform: rotate(45deg) scale(0.8); /* 회전 및 크기 조절 */
+    opacity: 0.7; /* 투명도 조절 */
+    content: '-'; 
+    top: 11px;
+    font-size: 30px;
+}
+
+.accodion-content {
+    display: none;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f5f5;
+    font-size: 15px;
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    line-height: 25px;
+}
+
+
+/**wish-list**/
+#wishList-wrapper {margin-top: 15px;}
+
+#wishList-wrapper input[type=radio]{
+    display: none;
+}
+#wishList-wrapper label{
+    font-size: 1em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#wishList-wrapper label:hover{
+    text-shadow: 0 0 0 #CD1F48;
+}
+#wishList-wrapper label:hover ~ label{
+    text-shadow: 0 0 0 #CD1F48;
+}
+#wishList-wrapper input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #CD1F48;
+}
 
 /**상품 이미지**/
 .shopProduct-img {
@@ -75,5 +204,96 @@ body {
 #imgPoster_d, #imgDetail_d {
 	width: 500px;
 }
+
+
+/**리뷰**/
+.shopReview-wrapper {
+	margin-top: 50px;
+}
+
+#review-container {
+   color: white;
+}
+
+.review-item, #rcontent {
+   position: relative;
+   margin-left: 30px ;
+   background-color: rgba(255, 255, 255, 0.2);
+   padding: 20px;
+   border-radius: 6px;
+   width: 500px;
+   box-shadow: 0 0 4px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08);
+   margin-bottom: 20px;
+}
+
+#rcontent::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+#reviewinsert {
+   margin: 30px 0;
+}
+
+.btn {
+   text-align:center;
+   display: inline-block;
+   width: 70px;
+   margin-top: 30px;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+	background-color: #c8c8c8;
+}
+
+.rcontainer {
+   margin: 100px auto 40px auto;
+   border: 1px solid white;
+   max-width: 80%;
+}
+
+.rcontainer p {
+	font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.rcontainer hr {border:3px solid #ddd;}
+
+/* 별점 */
+#reviewForm fieldset{
+	margin-left: 30px ;
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#reviewForm fieldset legend{
+    text-align: right;
+}
+#reviewForm input[type=radio]{
+    display: none;
+}
+#reviewForm label{
+    font-size: 2em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#reviewForm label:hover{
+    text-shadow: 0 0 0 #CD1F48;
+}
+#reviewForm label:hover ~ label{
+    text-shadow: 0 0 0 #CD1F48;
+}
+#reviewForm input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #CD1F48;
+}
+
 
 

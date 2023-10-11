@@ -18,7 +18,7 @@
 		<nav class="shopMenu">
 			<div class="shopMenu-bar">
 				<div>
-					<a href="total_shop_main">All</a>
+					<a href="totalShopMain">All</a>
 				</div>
 				<div>
 					<a href="#" class="category-link" data-category="1">Outer</a>

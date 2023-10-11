@@ -31,6 +31,10 @@
 			</a>
 		</div>
 		
+		<!-- scroll to top -->
+		<div class="scrollToTop">
+			<button id="scrollToTopBtn" onclick="scrollToTop()"><img src="img/scroll_to_top.png"></button>
+		</div>
 	</div>
 </div>
 </body>
