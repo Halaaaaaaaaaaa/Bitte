@@ -66,10 +66,6 @@ class Accordion {
 	const accordion = new Accordion('.title');
 	accordion.showAll();
 	
-
-//wish-list
-
-	
 //scroll to top
 var Btn = document.getElementById("scrollToTopBtn");
 var rootElement = document.documentElement;
@@ -82,4 +78,5 @@ function scrollToTop() {
 }
 Btn.addEventListener("click", scrollToTop);
 
+//review
 

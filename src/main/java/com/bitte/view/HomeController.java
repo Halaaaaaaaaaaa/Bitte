@@ -10,8 +10,7 @@ public class HomeController {
 	
 	// HomeController.java
 	@RequestMapping(value = "/index")
-	public String home(Model model) {
-
+	public String home() {
 		return "index";
 	}
 

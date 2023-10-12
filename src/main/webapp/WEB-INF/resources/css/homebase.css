@@ -435,16 +435,14 @@ header {
 	font-weight: bold;
 }
 
-.footer-github {margin: 0 2em 0 auto;}
+.footer-github {margin: 0 4em 0 auto;}
 
 .github {width: 1.7em;}
 
 /**scroll to top**/
 .scrollToTop {
-	z-index: 10;
-	margin-top: -70px;
-	text-align: right;
-	margin-right: 30px;
+	text-align: center;
+	margin: 50px auto;
 }
 
 #scrollToTopBtn {

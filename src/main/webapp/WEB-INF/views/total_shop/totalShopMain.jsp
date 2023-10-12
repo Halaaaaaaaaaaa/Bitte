@@ -11,6 +11,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="js/total_shop/shop.js"></script>
+	<script type="text/javascript">
+	    document.addEventListener('contextmenu', function (e) {
+	        e.preventDefault();
+	    });
+	</script>
 </head>
 <body>
 	<div>
@@ -52,6 +57,10 @@
 				</c:if>
 			</c:forEach>
 		</div> 	
+	</div>
+	
+	<div class="scrollToTop">
+		<button id="scrollToTopBtn" onclick="scrollToTop()"><img src="img/scroll_to_top.png"></button>
 	</div>
 	
 	<%@ include file="../footer.jsp"%>

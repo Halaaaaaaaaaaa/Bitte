@@ -29,12 +29,7 @@
 			<a href="https://github.com/Halaaaaaaaaaaa/Bitte">
 				<img class="github" src="img/github.png">
 			</a>
-		</div>
-		
-		<!-- scroll to top -->
-		<div class="scrollToTop">
-			<button id="scrollToTopBtn" onclick="scrollToTop()"><img src="img/scroll_to_top.png"></button>
-		</div>
+		</div>				
 	</div>
 </div>
 </body>

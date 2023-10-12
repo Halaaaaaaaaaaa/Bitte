@@ -9,11 +9,13 @@
 		<typeAlias type="com.bitte.biz.dto.ProductColorVO" alias="Product_color"/>
 		<typeAlias type="com.bitte.biz.dto.ProductSizeVO" alias="Product_size"/>
 		<typeAlias type="com.bitte.biz.dto.ShopVO" alias="Shop"/>
+		<typeAlias type="com.bitte.biz.dto.ReviewVO" alias="Review"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
 	<mappers>
 		<mapper resource="mappings/user-mapping.xml"/>
 		<mapper resource="mappings/total_shop-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
 	</mappers>
 </configuration>

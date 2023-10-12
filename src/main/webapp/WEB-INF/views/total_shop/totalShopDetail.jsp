@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/total_shop/total_shop_detail.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/total_shop/shop.js"></script>
     <script type="text/javascript">
 	    document.addEventListener('contextmenu', function (e) {
@@ -18,6 +19,7 @@
 </head>
 <body>
 	<div>   
+		<input type="hidden" value="${uservo.id}" id="id">
 		<div class="detail-product">
 			<!-- 상품 info -->
 			<div class="shopProduct-span">
@@ -83,8 +85,6 @@
 	</div>
 	
 	<!-- info review -->
-	<div id="review-container">
-	</div>
 	<div class="rcontainer">
 		<p>리뷰</p>
 		<hr>
@@ -92,34 +92,40 @@
 			<div id="reviewinsert">
 				<div id="reviewpoint">
 					<fieldset>
-						<span class="text-bold">평점을 선택해주세요</span>
-						<input type="radio" name="rpoint" value="5" id="rpoint5"><label for="rpoint5">💗</label>
-						<input type="radio" name="rpoint" value="4" id="rpoint4"><label for="rpoint4">💗</label>
-						<input type="radio" name="rpoint" value="3" id="rpoint3"><label for="rpoint3">💗</label>
-						<input type="radio" name="rpoint" value="2" id="rpoint2"><label for="rpoint2">💗</label>
-						<input type="radio" name="rpoint" value="1" id="rpoint1"><label for="rpoint1">💗</label>
+						<input type="radio" name="r_point" value="5" id="r_point5"><label for="r_point5">💗</label>
+						<input type="radio" name="r_point" value="4" id="r_point4"><label for="r_point4">💗</label>
+						<input type="radio" name="r_point" value="3" id="r_point3"><label for="r_point3">💗</label>
+						<input type="radio" name="r_point" value="2" id="r_point2"><label for="r_point2">💗</label>
+						<input type="radio" name="r_point" value="1" id="r_point1"><label for="r_point1">💗</label>
 					</fieldset>
 				</div>
-				<span>
-                	<input type="text" maxlength="50" id="rcontent" name="rcontent" placeholder="50자 이내로 후기를 입력해주세요" />
-                </span>&emsp;&emsp;
-				<span id="button">
-					<a href='#' onClick="save_review()" class="btn">등록</a>
-				</span>
+				<div id="reviewContent">
+					<span>
+	                	<input type="text" maxlength="50" id="r_content" name="r_content" placeholder="50자 이내로 후기를 입력해주세요" />
+	                </span>&ensp;
+					<span id="button">
+						<a href='#' onClick="save_review()" class="btn">등록</a>
+					</span>
+				</div>
 			</div>
-			<input type="hidden" value="${total_ent.tseq}" id="tseq" name="tseq" />
-        	 
+			<input type="hidden" value="${shop_detail.p_code}" id="p_code" name="p_code" />
 		</form>
+		<!-- info review list -->
+		<div id="review-container">
+		</div>
 	</div>
 	
 	<div class="container">
-    <form id="reviewListForm" name="reviewListForm" method="post">
-        <div id="reviewList"></div>
-    </form>
+	    <form id="reviewListForm" name="reviewListForm" method="post">
+	        <div id="reviewList"></div>
+	    </form>
     </div>
-	<script type="text/javascript" src="js/total_shop/shop.js"></script>
+	<script type="text/javascript" src="js/total_shop/review.js"></script>
 	
-
+	<div class="scrollToTop">
+		<button id="scrollToTopBtn" onclick="scrollToTop()"><img src="img/scroll_to_top.png"></button>
+	</div>
+	
     <%@ include file="../footer.jsp"%>
 </body>
 </html>

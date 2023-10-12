@@ -62,7 +62,7 @@
 													<span class="ripplesCircle"></span>
 												</div>
 											</button>
-											<button type="button" class="button buttonBlack" onclick="location.href='join_form'">
+											<button type="button" class="button buttonBlack" onclick="location.href='join_page'">
 												CREATE ACCOUNT
 												<div class="ripples buttonRipples">
 													<span class="ripplesCircle"></span>

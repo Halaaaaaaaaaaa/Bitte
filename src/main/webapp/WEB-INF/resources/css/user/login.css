@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	top: 0;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+/** 로그인 **/
+.login-wrapper {
+	margin: auto;
+	height: 532px;
+}
+
+.login-wrapper form {
+	width:500px;
+	margin: 80px auto;
+}
+
+.login-wrapper input {
+	width:500px;
+	margin: auto;
+}
+
+.login-group { 
+	position: relative; 
+	margin-bottom: 10px; 
+}
+
+.login-group input {
+	font-size: large;
+	padding: 20px 10px 20px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fff;
+	color: #636363;
+	width: 400px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+}
+
+.login-group input:focus {outline: none; }
+
+.login-group input::placeholder {font-size: 10px;}
+
+/*Underline*/
+.login-bar {
+	position: relative;
+	display: block;
+	width: 400px;
+	margin: auto;
+}
+
+.login-bar:before, 
+.login-bar:after {
+	content: '';
+	height: 2px; 
+	width: 0;
+	bottom: 1px; 
+	position: absolute;
+	background: #3c3c3c; 
+	transition: all 0.2s ease;
+}
+
+.login-bar:before {left: 50%;}
+
+.login-bar:after {right: 50%;}
+
+/*active*/
+.login-group input:focus ~ .login-bar:before, .login-group input:focus ~ .login-bar:after { width: 50%; }
+
+/*Highlight*/
+.login-highlight {
+	position: absolute;
+	height: 60%; 
+	width: 100px; 
+	top: 25%; 
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+/*active*/
+.login-group input:focus ~ .login-highlight {
+	animation: inputLogin-highlighter 0.3s ease;
+}
+
+/*find id pwd*/
+.findIdPwd {
+	color: #3c3c3c;
+	text-align: right;
+	font-size: 8px;
+	margin: 3em 7em 3em auto;
+}
+
+/*버튼*/
+.login_btn {
+	margin: auto 3.1em;	
+}
+
+.ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.buttonRipple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.buttons {
+	padding: 14px 24px;
+    margin: 0.3em auto;
+    width: 400px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 1px;
+    border: 0;
+    border-bottom: 2px solid #3c3c3c;
+    cursor: pointer;
+    transition: all 0.15s ease;	
+}
+.button:focus { outline: 0; }
+
+.buttonBlack  {
+	background: #3c3c3c;
+	text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+
+.buttonWhite {
+	background: #fffcef;
+	border: 1px solid #3c3c3c;
+	color: #3c3c3c;
+}
+
+.buttonBlue:hover {background: #3c3c3c; }
+
+/*socialLogin*/
+.socialLogin {
+	color: #3c3c3c;
+	text-align: center;
+	font-size: 8px;
+	margin: 3em auto;
+}
+
+.findIdPwd a, .socialLogin a {
+	text-decoration: none;
+	color: black;
+}
+
