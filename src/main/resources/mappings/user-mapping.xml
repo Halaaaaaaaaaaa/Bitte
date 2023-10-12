@@ -17,7 +17,7 @@
 	<!-- 회원가입 -->
 	<insert id="joinUser">
 		INSERT INTO users(id, pwd, name, email, phone, address, grade, userDate) 
-		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{address}, 'Silver', sysdate)
+		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{address}, 'Silver', CURRENT_TIMESTAMP)
 	</insert>
 	
 	<!-- 아이디 중복 검사 -->

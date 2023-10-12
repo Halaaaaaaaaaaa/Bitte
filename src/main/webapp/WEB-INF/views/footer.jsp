@@ -29,8 +29,7 @@
 			<a href="https://github.com/Halaaaaaaaaaaa/Bitte">
 				<img class="github" src="img/github.png">
 			</a>
-		</div>
-		
+		</div>				
 	</div>
 </div>
 </body>

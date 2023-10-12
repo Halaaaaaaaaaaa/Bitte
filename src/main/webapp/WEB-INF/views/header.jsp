@@ -62,7 +62,7 @@
 													<span class="ripplesCircle"></span>
 												</div>
 											</button>
-											<button type="button" class="button buttonBlack" onclick="location.href='join_form'">
+											<button type="button" class="button buttonBlack" onclick="location.href='join_page'">
 												CREATE ACCOUNT
 												<div class="ripples buttonRipples">
 													<span class="ripplesCircle"></span>
@@ -138,7 +138,7 @@
 						<div class="nav-alt" id="nav-menu">
 							<div class="nav-wrapper-alt">
 								<nav>
-									<a href="total_shop_main">SHOP</a><br> 
+									<a href="totalShopMain">SHOP</a><br> 
 									<a href="#">ABOUT</a><br> 
 									<a href="#">WORK</a><br> 
 									<a href="#">SERVICES</a>

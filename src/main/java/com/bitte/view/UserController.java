@@ -26,9 +26,15 @@ public class UserController {
 	private UserService userService;
 	
 	//회원가입 화면
-	@GetMapping("/join_form")
+	@GetMapping("/join_page")
 	public String joinForm() {
-		return "user/join";
+		return "user/join_page";
+	}
+	
+	//로그인 페이지
+	@GetMapping(value="login_page")
+	public String loginForm() {
+		return "user/login_page";
 	}
 	
 	// 로그인 처리

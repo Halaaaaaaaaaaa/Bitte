@@ -438,3 +438,19 @@ header {
 .footer-github {margin: 0 4em 0 auto;}
 
 .github {width: 1.7em;}
+
+/**scroll to top**/
+.scrollToTop {
+	text-align: center;
+	margin: 50px auto;
+}
+
+#scrollToTopBtn {
+	background-color: rgba(0, 0, 255, 0);
+	border-color: rgba(0, 0, 255, 0);
+}
+
+#scrollToTopBtn img {
+	width: 50px;
+	cursor: pointer;
+}
