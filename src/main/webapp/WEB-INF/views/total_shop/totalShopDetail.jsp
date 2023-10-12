@@ -114,18 +114,20 @@
 		<div id="review-container">
 		</div>
 	</div>
-	
+
 	<div class="container">
-	    <form id="reviewListForm" name="reviewListForm" method="post">
-	        <div id="reviewList"></div>
-	    </form>
-    </div>
-	<script type="text/javascript" src="js/total_shop/review.js"></script>
-	
-	<div class="scrollToTop">
-		<button id="scrollToTopBtn" onclick="scrollToTop()"><img src="img/scroll_to_top.png"></button>
+		<form id="reviewListForm" name="reviewListForm" method="post">
+			<div id="reviewList"></div>
+		</form>
 	</div>
-	
-    <%@ include file="../footer.jsp"%>
+	<script type="text/javascript" src="js/total_shop/review.js"></script>
+
+	<div class="scrollToTop">
+		<button id="scrollToTopBtn" onclick="scrollToTop()">
+			<img src="img/scroll_to_top.png">
+		</button>
+	</div>
+
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>
