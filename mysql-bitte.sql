@@ -3,19 +3,21 @@ show databases;
 use bitte;
 
 -- 회원 테이블
--- 컬럼: 아이디, 비번, 이름, 이메일, 폰번호, 주소, 등급, 가입일
+-- 컬럼: 아이디, 비번, 이름, 이메일, 폰번호, 주소, 상세주소, 등급, 가입일
 create table users (
    id varchar(20) primary key,
    pwd varchar(30) not null,
    name varchar(15) not null,
    email varchar(25) not null,
    phone varchar(13) not null,
-   address varchar(50) not null,
+   address_kakao varchar(100) not null,
+   address_detail varchar(50) not null,
    grade varchar(10) default 'Silver',
    userDate DATETIME  default CURRENT_TIMESTAMP
 );
 
-SELECT * FROM users;
+SELECT * FROM users order by userDate;
+
 
 ---------------------------------------------------------------------------------
 -- 관리자 테이블
@@ -131,6 +133,26 @@ CREATE TABLE review (
 
 select * from review;
 TRUNCATE review;
+
+---------------------------------------------------------------------------------
+-- 고객센터 테이블
+-- 컬럼명: 문의번호, 회원id, 상품번호, 이메일, 문의제목, 문의내용, 문의상태, 작성일, 답변
+create table cs (
+    c_code int auto_increment primary key,
+    id varchar(20) not null,
+        constraint fk_cs_id foreign key(id) references users(id),
+	p_code int not null,
+		constraint fk_cs_pCode foreign key(p_code) references total_shop(p_code),
+    c_email varchar(25) not null,
+    c_title varchar(50) not null, 
+    c_content varchar(500) not null,
+    c_status varchar(15) default '답변대기',
+    c_regdate TIMESTAMP default CURRENT_TIMESTAMP,
+    reply varchar(500)
+);
+
+select * from cs;
+
 
 
 commit;

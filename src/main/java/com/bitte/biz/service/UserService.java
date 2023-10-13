@@ -24,5 +24,6 @@ public interface UserService {
 	//회원가입
 	int joinUser(UserVO vo, HttpServletResponse response) throws Exception;
 	
-
+	//마이페이지 회원정보 수정
+	void updateUser(UserVO vo);
 }

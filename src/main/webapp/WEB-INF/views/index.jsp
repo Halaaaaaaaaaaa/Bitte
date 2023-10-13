@@ -11,10 +11,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<!-- <a href="totalShopMain"> -->
-	<a href="login_page" >
+	<a href="totalShopMain"> 
 		<img alt="" src="img/main.jpg">
 	</a>
+	
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

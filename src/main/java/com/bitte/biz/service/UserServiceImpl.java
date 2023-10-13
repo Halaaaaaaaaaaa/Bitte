@@ -70,5 +70,10 @@ public class UserServiceImpl implements UserService {
 		out.close();
 	}
 
+	@Override	//마이페이지 회원정보 수정
+	public void updateUser(UserVO vo) {
+		userDao.updateUser(vo);
+	}
+
 
 }

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+*, *:before, *:after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	top: 0;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.mypage {
+	display: flex;
+}
+
+#sidebar {
+	width: 260px;
+	padding: 3em 4em 12.7em 5em;
+	font-size: small;
+}
+
+#content {
+	flex: 1;
+	padding: 20px;
+}
+
+.menu-button {
+	display: block;
+	padding: 7px;
+}
+
+#sidebar p {
+    padding: 7px;
+    font-weight: bold;
+    margin-top: 40px;
+    color: #F0B469;
+}
+
+#userInfoPage, #shippingPage, 
+#inquiryPage, #orderHistoryPage,
+#cancelPage, #wishlistPage {
+	display: none;
+}
+
+.page {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.user-wrap {
+	background-color: #3c3c3c;
+	color: #fff;
+	padding: 1em;
+}
