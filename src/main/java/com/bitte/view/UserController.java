@@ -1,7 +1,10 @@
 package com.bitte.view;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,8 @@ import com.bitte.biz.service.UserService;
 @Controller
 @SessionAttributes("loginUser")
 public class UserController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -77,9 +82,76 @@ public class UserController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinUser(@ModelAttribute UserVO vo, RedirectAttributes rttr, HttpServletResponse response) throws Exception{
 		rttr.addFlashAttribute("result", userService.joinUser(vo, response));
-		return "redirect:index";
+		return "redirect:login_page";
 	}
 	
+	// 마이페이지
+	@GetMapping("/mypage")
+	public String mypage(Model model, HttpSession session) {
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "user/session_fail";
+		}
+		
+		model.addAttribute("user", loginUser);
+		logger.info(loginUser.toString());
+		
+		return "user/mypage";
+	}
+	
+	//마이페이지
+	@RequestMapping(value = "/loadPage", method = RequestMethod.GET)
+	public String loadPage(
+	        @RequestParam(required = false) String userInfoPage,
+	        @RequestParam(required = false) String deliveryPage,
+	        @RequestParam(required = false) String personalInqPage,
+	        @RequestParam(required = false) String productInqPage,
+	        @RequestParam(required = false) String orderPage,
+	        @RequestParam(required = false) String cancelPage,
+	        @RequestParam(required = false) String wishlistPage) {
+
+	    if ("userInfoPage".equals(userInfoPage)) {
+	        return "user/mypage/userInfoPage";
+	    } else if ("deliveryPage".equals(deliveryPage)) {
+	        return "user/mypage/deliveryPage";
+	    } else if ("personalInqPage".equals(personalInqPage)) {
+	        return "user/mypage/personalInqPage";
+	    } else if ("productInqPage".equals(productInqPage)) {
+	        return "user/mypage/productInqPage";
+	    } else if ("orderPage".equals(orderPage)) {
+	        return "user/mypage/orderPage";
+	    } else if ("cancelPage".equals(cancelPage)) {
+	        return "user/mypage/cancelPage";
+	    } else if ("wishlistPage".equals(wishlistPage)) {
+	        return "user/mypage/wishlistPage";
+	    } else {
+	        return "user/mypage/userInfoPage";
+	    }
+	}
+	
+	//마이페이지 주문 내역 화면
+	@GetMapping(value="/orderPage")
+	public String mypageOrder() {
+		return "user/mypage/orderPage";
+	}
+	
+	//마이페이지 사용자 정보 화면
+	@GetMapping("/userInfoPage")
+	public String mypageUserInfo(UserVO vo, Model model, HttpSession session) {
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "user/session_fail";
+		}
+		
+		userService.updateUser(vo);
+
+		model.addAttribute("loginUser", userService.getUser(vo.getId()));
+		model.addAttribute("users", loginUser);
+		return "user/mypage/userInfoPage";
+		
+	}
 
 
 

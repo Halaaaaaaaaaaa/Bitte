@@ -16,8 +16,8 @@
 	
 	<!-- 회원가입 -->
 	<insert id="joinUser">
-		INSERT INTO users(id, pwd, name, email, phone, address, grade, userDate) 
-		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{address}, 'Silver', CURRENT_TIMESTAMP)
+		INSERT INTO users(id, pwd, name, email, phone, address_kakao, grade, userDate, address_detail) 
+		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{address_kakao}, 'Silver', CURRENT_TIMESTAMP, #{address_detail})
 	</insert>
 	
 	<!-- 아이디 중복 검사 -->
@@ -32,6 +32,10 @@
 		WHERE email=#{email}
 	</select>
 	
-
+	<!-- 마이페이지 회원정보 수정 -->
+	<update id="updateUser">
+		UPDATE users SET pwd=#{pwd}, address_kakao=#{address_kakao}, address_detail=#{address_detail}, phone=#{phone}, email=#{email}
+		where id=#{id}
+	</update>
 		
 </mapper>

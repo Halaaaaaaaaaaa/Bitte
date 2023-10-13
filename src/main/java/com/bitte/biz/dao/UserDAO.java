@@ -56,5 +56,10 @@ public class UserDAO {
 	public int joinUser(UserVO vo) {
 		return mybatis.insert("UserMapper.joinUser", vo);
 	}
+	
+	//마이페이지 회원정보 수정
+	public void updateUser(UserVO vo) {
+		mybatis.update("UserMapper.updateUser", vo);
+	}
 
 }

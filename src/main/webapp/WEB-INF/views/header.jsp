@@ -9,8 +9,8 @@
 <title>BITTE SCHÖN</title>
 <link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/homebase.css" />
-<script type="text/javascript" src="js/index.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 	<header>
@@ -84,7 +84,7 @@
 								<div class="mypage">
 									<input id="toggle-login" type="checkbox"></input> 
 									<label for="toggle-login" class="hamburger-login"> 
-										<a href="#"><span>My Page</span></a>
+										<a href="mypage"><span>My Page</span></a>
 									</label>
 								</div>
 								<div class="logout">
@@ -149,7 +149,26 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 모달창 아이콘 버튼 -->
+		<div class="row2">
+			<div class="cs-wrapper">
+				<button class="open">
+					<img alt="" src="img/cs_icon.png">
+				</button>
+			</div>
+		</div>
+		
+		<!-- 모달창 -->
+		<div class="container">
+			<div class="modal">
+				<h2>안녕 나는 모달창</h2>
+				<button class="close">닫기</button>
+			</div>
+		</div>
+	
 	</header>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

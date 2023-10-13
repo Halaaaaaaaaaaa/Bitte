@@ -29,13 +29,13 @@
 				<a href="#">아이디/비밀번호 찾기</a>
 			</div>
 			<div class="login_btn">
-				<button type="submit" class="buttons buttonBlack">
+				<button type="submit" class="buttons buttonBlacks">
 					LOGIN
 					<div class="ripple buttonRipple">
 						<span class="ripplesCircle"></span>
 					</div>
 				</button>
-				<button type="button" class="buttons buttonWhite" onclick="location.href='join_form'">
+				<button type="button" class="buttons buttonWhite" onclick="location.href='join_page'">
 					CREATE ACCOUNT
 					<div class="ripple buttonRipple">
 						<span class="ripplesCircle"></span>

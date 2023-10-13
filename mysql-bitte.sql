@@ -3,19 +3,21 @@ show databases;
 use bitte;
 
 -- 회원 테이블
--- 컬럼: 아이디, 비번, 이름, 이메일, 폰번호, 주소, 등급, 가입일
+-- 컬럼: 아이디, 비번, 이름, 이메일, 폰번호, 주소, 상세주소, 등급, 가입일
 create table users (
    id varchar(20) primary key,
    pwd varchar(30) not null,
    name varchar(15) not null,
    email varchar(25) not null,
    phone varchar(13) not null,
-   address varchar(50) not null,
+   address_kakao varchar(100) not null,
+   address_detail varchar(50) not null,
    grade varchar(10) default 'Silver',
    userDate DATETIME  default CURRENT_TIMESTAMP
 );
 
-SELECT * FROM users;
+SELECT * FROM users order by userDate;
+
 
 ---------------------------------------------------------------------------------
 -- 관리자 테이블
@@ -42,17 +44,19 @@ create table total_shop (
 
 select * from total_shop;
 
+
 insert into total_shop(p_category, p_name, p_price) values(1, 'fall coate', '110,000');
 insert into total_shop(p_category, p_name, p_price) values(2, 'fall top', '90,000');
 insert into total_shop(p_category, p_name, p_price) values(3, 'fall bottom', '80,000');
 insert into total_shop(p_category, p_name, p_price) values(4, 'fall dress', '89,000');
 insert into total_shop(p_category, p_name, p_price) values(5, 'fall bag', '140,000');
 
+SET @last_p_code = LAST_INSERT_ID();
 ---------------------------------------------------------------------------------
 -- 색상별 상품 테이블
 -- 컬럼: 상품코드, 상품 색상, 상품재고량, 상품판매량
 create table product_color (
-    p_code int,
+    p_code int primary key,
         constraint fk_color_pcode foreign key(p_code) references total_shop(p_code),
     p_color varchar(20) not null,
     p_color_stock int not null,
@@ -61,60 +65,45 @@ create table product_color (
     p_img_detail varchar(30) not null
 );
 
-
 select * from product_color order by p_code;
-
-DELETE FROM product_color
-    WHERE p_code = '5';
-
-SELECT a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_img, b.p_img_detail
-		FROM total_shop a, product_color b
-		WHERE a.p_code = b.p_code
-		ORDER BY p_code DESC;
-        
-SELECT  a.p_code, a.p_category, a.p_name, a.p_price, a.p_regdate, b.p_color, b.p_color_stock, b.p_color_sell, b.p_img, b.p_img_detail
-		FROM total_shop a, product_color b
-		WHERE a.p_code = b.p_code
-		    AND a.p_code = '5' AND a.p_name = 'fall bag' AND b.p_color = 'red';
 
 -- 사이즈별 상품 테이블
 -- 컬럼: 상품코드, 상품 사이즈, 상품재고량, 상품판매량
-create table product_size (
-    p_code int,
-    p_size varchar(10) not null,
-    p_size_stock int not null,
-    p_size_sell int,
-        constraint fk_size_pcode foreign key(p_code) references total_shop(p_code)
+CREATE TABLE product_size (
+    p_code INT,
+    p_size VARCHAR(10) NOT NULL,
+    p_size_stock INT NOT NULL,
+    p_size_sell INT,
+    CONSTRAINT pk_product_size PRIMARY KEY (p_code, p_size),
+    CONSTRAINT fk_size_pcode FOREIGN KEY (p_code) REFERENCES total_shop(p_code)
 );
 
 select * from product_size order by p_code;
 
-insert into product_color values ('1', 'brouwn', '15', '0', 'coat_brown', 'coat_brown_d');
-insert into product_color values ('1', 'black', '20', '0', 'coat_black', 'coat_black_d');
-insert into product_color values ('2', 'white', '15', '0', 'top_white', 'top_white_d');
-insert into product_color values ('2', 'black', '25', '0', 'top_black', 'top_black_d');
-insert into product_color values ('3', 'grey', '27', '0', 'bottom_grey', 'bottom_grey_d');
-insert into product_color values ('3', 'black', '30', '0', 'bottom_black', 'bottom_black_d');
-insert into product_color values ('3', 'jean', '35', '0', 'bottom_jean', 'bottom_jean_d');
-insert into product_color values ('4', 'white', '18', '0', 'dress_white', 'dress_white_d');
-insert into product_color values ('4', 'ivory', '27', '0', 'dress_ivory', 'dress_ivory_d');
-insert into product_color values ('4', 'black', '29', '0', 'dress_black', 'dress_black_d');
-insert into product_color values ('5', 'red', '31', '0', 'bag_red', 'bag_red_d');
-insert into product_color values ('5', 'black', '32', '0', 'bag_black', 'bag_black_d');
-insert into product_color values ('5', 'brown', '33', '0', 'bag_brown', 'bag_brown_d');
-insert into product_size values ('1', 'S', '3', '0');
-insert into product_size values ('1', 'M', '8', '0');
-insert into product_size values ('1', 'L', '10', '0');
-insert into product_size values ('2', 'S', '4', '0');
-insert into product_size values ('2', 'M', '9', '0');
-insert into product_size values ('2', 'L', '11', '0');
-insert into product_size values ('3', 'S', '5', '0');
-insert into product_size values ('3', 'M', '10', '0');
-insert into product_size values ('3', 'L', '12', '0');
-insert into product_size values ('4', 'S', '6', '0');
-insert into product_size values ('4', 'M', '11', '0');
-insert into product_size values ('4', 'L', '13', '0');
-insert into product_size values ('5', '0', '30', '0');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'brouwn', '15', '0', 'coat_brown', 'coat_brown_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'black', '20', '0', 'coat_black', 'coat_black_d');
+
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code,'white', '15', '0', 'top_white', 'top_white_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'black', '25', '0', 'top_black', 'top_black_d');
+
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'grey', '27', '0', 'bottom_grey', 'bottom_grey_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'black', '30', '0', 'bottom_black', 'bottom_black_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'jean', '35', '0', 'bottom_jean', 'bottom_jean_d');
+
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'white', '18', '0', 'dress_white', 'dress_white_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'ivory', '27', '0', 'dress_ivory', 'dress_ivory_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'black', '29', '0', 'dress_black', 'dress_black_d');
+
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'red', '31', '0', 'bag_red', 'bag_red_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'black', '32', '0', 'bag_black', 'bag_black_d');
+insert into product_color(p_code, p_color, p_color_stock, p_color_sell, p_img, p_img_detail) values (@last_p_code, 'brown', '33', '0', 'bag_brown', 'bag_brown_d');
+
+
+INSERT INTO product_size(p_code, p_size, p_size_stock, p_size_sell)
+VALUES (23, 'S', 50, 0),
+       (23, 'M', 50, 0),
+       (23, 'L', 50, 0);
+
 
 ---------------------------------------------------------------------------------
 -- 상품 이미지 테이블
@@ -127,6 +116,43 @@ create table product_img(
 );
 
 select * from product_img;
+
+---------------------------------------------------------------------------------
+-- 후기 테이블
+-- 컬럼명: 후기번호, 아이디, 공연번호, 후기작성일, 평점, 내용 
+CREATE TABLE review (
+   r_code int auto_increment NOT NULL primary key,
+   id VARCHAR(20) NULL,
+		constraint fk_re_id foreign key(id) references users(id),
+   p_code int NOT NULL,
+        constraint fk_re_p_code foreign key(p_code) references total_shop(p_code),
+   regdate DATETIME  default CURRENT_TIMESTAMP,
+   r_point int NOT NULL,
+   r_content VARCHAR(150) NOT NULL
+);
+
+select * from review;
+TRUNCATE review;
+
+---------------------------------------------------------------------------------
+-- 고객센터 테이블
+-- 컬럼명: 문의번호, 회원id, 상품번호, 이메일, 문의제목, 문의내용, 문의상태, 작성일, 답변
+create table cs (
+    c_code int auto_increment primary key,
+    id varchar(20) not null,
+        constraint fk_cs_id foreign key(id) references users(id),
+	p_code int not null,
+		constraint fk_cs_pCode foreign key(p_code) references total_shop(p_code),
+    c_email varchar(25) not null,
+    c_title varchar(50) not null, 
+    c_content varchar(500) not null,
+    c_status varchar(15) default '답변대기',
+    c_regdate TIMESTAMP default CURRENT_TIMESTAMP,
+    reply varchar(500)
+);
+
+select * from cs;
+
 
 
 commit;
