@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+*, *:before, *:after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	top: 0;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.userInfo {margin: 35px auto 60px auto;}
+
+.info {
+	width: 600px;
+    text-align: left;
+    margin: auto;
+}
+
+.info p {
+	font-size: 22px;
+    color: #6e6e6e;
+    font-weight: bold;
+}
+
+.info hr {
+	border: 1px solid #6e6e6e;
+    margin: 20px auto 40px auto;
+}
+
+/** 회원정보 테이블 **/
+#user_update table th {
+	width: 180px;
+	text-align: left;
+	vertical-align: initial;
+	font-size: smaller;
+	color: #6e6e6e;
+}
+
+#user_update table input {
+	width: 400px;
+	padding: 1em;
+	color: #6e6e6e;
+}
+
+#user_update span {
+	font-size: x-small;
+}
+
+#user_update span {
+	font-size: x-small;
+}
+
+#user_update td:last-child {
+	width:35px;
+	vertical-align: baseline;
+}
+
+#user_update td:first-of-type {height:40px;}
+
+/** 회원수정 회원탈퇴 버튼 **/
+.btn {
+	text-align: center;
+    margin: 40px auto;
+}
+
+.btn input[type="button"] {
+	width:280px;
+	height: 40px;
+    font-size: small;
+}
+
+.btn-update {
+	background: #464646;
+    color: white;
+}
+
+.btn-delete {
+	color: #464646;
+    background: white;
+    border: 1px solid #464646;
+}
