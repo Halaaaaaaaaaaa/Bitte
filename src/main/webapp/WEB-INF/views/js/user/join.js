@@ -15,7 +15,7 @@ function pwd_checkF(){
 	} else if(num < 0 || eng < 0 || spe < 0){
 		$("#pwd_msg").html("*영문,숫자,특수문자를 혼합하여 입력해주세요.").css("color", "red");
 		$("#joinBtn").prop("disabled", true);
-	} else if(pwd.length < 8 || pwd.length > 12) {
+	} else if(pwd.length < 8 || pwd.length > 16) {
 		$("#pwd_msg").html("*비밀번호는 8자 이상 16자 이내로 입력해주세요").css("color", "red");
 		$("#joinBtn").prop("disabled", true);
 	} else if(repwd == "" || repwd == null) {

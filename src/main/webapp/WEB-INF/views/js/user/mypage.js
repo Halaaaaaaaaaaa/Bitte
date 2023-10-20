@@ -202,87 +202,88 @@ function address_checkF(){
 //회원 정보 수정
 function submitUpdate() {
 	var email = document.getElementById("email").value;
-    var pwd = document.getElementById('pwd').value;
-    var repwd = document.getElementById('repwd').value;
-    var phone = document.getElementById("phone").value;
-    var name = document.getElementById("name").value;
-    var theform = document.getElementById("user_update");
-  
-    if (pwd.length < 8 || pwd.length > 12) {
-        alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
-        pwd = "";
-        return false;
-    }
-    if (name == "") {
-        alert("이름을 입력하세요.");
-        name.focus();
-        return false;
-    }
-    if (name.search(/\s/) != -1) {
-        alert("이름을 공백 없이 입력해주세요.");
-        return false;
-    }
-    if (pwd.length <= 8 || pwd.length >= 12) {
-        alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
-        pwd = "";
-        return false;
-    }
-    if (pwd.search(/\s/) != -1) {
-        alert("비밀번호는 공백 없이 입력해주세요.");
-        pwd = "";
-        return false;
-    }
-    if (num < 0 || eng < 0 || spe < 0) {
-        alert("영문, 숫자, 특수문자를 혼합하여 입력해주세요.");
-        return false;
-    }
-    if (email.includes("<") || email.value.includes(">")) {
-        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
-        return false;
-    }
-    if (email == "") {
-        alert("이메일을 입력하세요.");
-        email.focus();
-        return false;
-    }
-    if (repwd == "") {
-        alert("비밀번호를 확인해주세요.");
-        repwd.focus();
-        return false;
-    }
-    if (!emailPattern.test(email)) {
-        alert("이메일을 다시 입력해주세요.");
-        email.focus();
-        return false;
-    }
-    if (email.search(/\s/) != -1) {
-        alert("이메일을 공백 없이 입력해주세요.");
-        return false;
-    }
-    if (phone == "") {
-        alert("핸드폰번호를 입력하세요.");
-        phone.focus();
-        return false;
-    }
-    if (phone.length < 13 || phone.length > 14) {
-        alert("전화번호를 다시 입력해주세요.");
-        phone.focus();
-        return false;
-    }
-    if (!phonePattern.test(phone)) {
-        alert("전화번호는 숫자만 입력해주세요.");
-        phone.focus();
-        return false;
-    }
-    if (phone.search(/\s/) != -1) {
-        alert("전화번호를 공백 없이 입력해주세요.");
-        return false;
-    }
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     
-    alert("회원 정보가 수정되었습니다.");
-    theform.action = "userInfoUpdate";
-    theform.submit();
+    var pwd = document.getElementById('pwd').value;
+	var num = pwd.search(/[0-9]/g);
+	var eng = pwd.search(/[a-z]/ig);
+	var spe = pwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	
+    var phone = document.getElementById("phone").value;
+    var phonePattern = /^[\d-]+$/;
+	
+    if(pwd.length < 8 || pwd.length > 16){
+		alert("비밀번호는 8글자 이상, 16글자 이하만 이용 가능합니다.");
+		document.getElementById("pwd").value = "";
+        return false;
+	} 
+	if (document.getElementById("name").value == "") {
+		alert("이름을 입력하세요.");
+		document.getElementById("name").focus();
+		return false;
+	} 
+	if(document.getElementById("name").value.search(/\s/) != -1){
+		alert("이름을 공백 없이 입력해주세요.");
+		return false;
+	} 
+	if (document.getElementById("repwd").value == "") {
+		alert("비밀번호를 확인해주세요.");
+		document.getElementById("repwd").focus();
+		return false;
+	} 
+	if(pwd.search(/\s/) != -1){
+		alert("비밀번호는 공백 없이 입력해주세요.");
+		document.getElementById("pwd").value = "";
+		return false;
+	} 
+	if(num < 0 || eng < 0 || spe < 0 ){
+		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
+		return false;
+	} 
+	if (document.getElementById("email").value == "") {
+		alert("이메일을 입력하세요.");
+		document.getElementById("email").focus();
+		return false;
+	} 
+	if(!emailPattern.test(email)) {
+		alert("이메일을 다시 입력해주세요.");
+	    document.getElementById("email").focus();
+	    return false;
+	} 
+	if(document.getElementById("email").value.search(/\s/) != -1){
+		alert("이메일을 공백 없이 입력해주세요.");
+		return false;
+	} 
+	if (document.getElementById("phone").value == "") {
+		alert("핸드폰번호를 입력하세요.");
+		document.getElementById("phone").focus();
+		return false;
+	} 
+	if(phone.length < 13 || phone.length > 14) {
+		alert("전화번호를 다시 입력해주세요.");
+		phone.focus();
+		return false;
+	} 
+	if (!phonePattern.test(phone)) {
+	    alert("전화번호는 숫자만 입력해주세요.");
+	    phone.focus();
+	    return false;
+	} 
+	if(document.getElementById("phone").value.search(/\s/) != -1){
+		alert("전화번호를 공백 없이 입력해주세요.");
+		return false;
+	} 
+	
+	var theform = document.getElementById("user_update"); // 폼 엘리먼트 가져오기
+	if (theform) { // 폼 엘리먼트가 존재하는 경우
+        alert("회원 정보가 수정되었습니다.");
+        theform.action = "userInfoUpdate";
+        theform.submit();
+    } else {
+        alert("폼 엘리먼트를 찾을 수 없습니다.");
+    }
 }
+
 
 //회원 탈퇴
 function submitDelete() {
