@@ -61,5 +61,10 @@ public class UserDAO {
 	public void updateUser(UserVO vo) {
 		mybatis.update("UserMapper.updateUser", vo);
 	}
+	
+	//마이페이지 회원정보 탈퇴
+	public void deleteUser(String id) throws Exception {
+		mybatis.delete("UserMapper.deleteUser", id);
+	}
 
 }

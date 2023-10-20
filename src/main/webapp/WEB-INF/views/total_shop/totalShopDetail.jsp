@@ -67,7 +67,7 @@
 				</div>
 				<!-- wish list -->
 				<div id="wishList-wrapper">
-					<input type="radio" name="" value="1" id="wish_point"><label for="wish_point">💗</label>
+					<input type="radio" name="wish_point" value="1" id="wish_point"><label for="wish_point">💗</label>
 				</div>
 			</div>
 			<!-- 상품 이미지 -->

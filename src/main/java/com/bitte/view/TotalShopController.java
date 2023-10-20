@@ -7,9 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.bitte.biz.dto.ShopVO;
 import com.bitte.biz.dto.TotalShopVO;
@@ -64,5 +67,7 @@ public class TotalShopController {
 		return "total_shop/totalShopDetail";
 	}
 	
+
+
 
 }
