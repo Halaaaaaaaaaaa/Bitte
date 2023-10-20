@@ -26,4 +26,7 @@ public interface UserService {
 	
 	//마이페이지 회원정보 수정
 	void updateUser(UserVO vo);
+	
+	//마이페이지 회원정보 탈퇴
+	void deleteUser(String id) throws Exception;
 }

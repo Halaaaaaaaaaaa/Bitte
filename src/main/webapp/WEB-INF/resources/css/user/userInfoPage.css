@@ -72,6 +72,7 @@ body {
 	width:280px;
 	height: 40px;
     font-size: small;
+    cursor: pointer;
 }
 
 .btn-update {

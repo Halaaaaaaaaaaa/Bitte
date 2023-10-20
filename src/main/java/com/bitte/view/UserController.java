@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,19 +31,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	//È¸¿ø°¡ÀÔ È­¸é
+	//íšŒì›ê°€ì… í™”ë©´
 	@GetMapping("/join_page")
 	public String joinForm() {
 		return "user/join_page";
 	}
 	
-	//·Î±×ÀÎ ÆäÀÌÁö
+	//ë¡œê·¸ì¸ í˜ì´ì§€
 	@GetMapping(value="login_page")
 	public String loginForm() {
 		return "user/login_page";
 	}
 	
-	// ·Î±×ÀÎ Ã³¸®
+	// ë¡œê·¸ì¸ ì²˜ë¦¬
 	@PostMapping("/login")
 	public String loginAction(UserVO vo, Model model) {
 		int u_result = userService.loginID(vo);
@@ -51,41 +52,41 @@ public class UserController {
 			model.addAttribute("loginUser", userService.getUser(vo.getId()));
 			return "redirect:index"; 
 		} else if (u_result == 0) {
-			model.addAttribute("errorMessage", "ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			model.addAttribute("errorMessage", "ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			return "user/login_fail";
 		} else {
-			model.addAttribute("errorMessage", "°èÁ¤ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
-			return "user/login_fail"; // ·Î±×ÀÎ ½ÇÆĞ½Ã
+			model.addAttribute("errorMessage", "ê³„ì •ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			return "user/login_fail"; // ë¡œê·¸ì¸ ì‹¤íŒ¨ì‹œ
 		}
 	}
 	
-	// ·Î±×¾Æ¿ô Ã³¸®
+	// ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 			status.setComplete();
 		return "index";
 	}
 	
-	// ¾ÆÀÌµğ Áßº¹ °Ë»ç(AJAX)
+	// ì•„ì´ë”” ì¤‘ë³µ ê²€ì‚¬(AJAX)
 	@RequestMapping(value = "/check_id", method = RequestMethod.POST)
 	public void check_id(@RequestParam("id") String id, HttpServletResponse response) throws Exception{
 		userService.check_id(id, response);
 	}
 		
-	// ÀÌ¸ŞÀÏ Áßº¹ °Ë»ç(AJAX)
+	// ì´ë©”ì¼ ì¤‘ë³µ ê²€ì‚¬(AJAX)
 	@RequestMapping(value = "/check_email", method = RequestMethod.POST)
 	public void check_email(@RequestParam("email") String email, HttpServletResponse response) throws Exception{
 		userService.check_email(email, response);
 	}
 		
-	// È¸¿ø °¡ÀÔ
+	// íšŒì› ê°€ì…
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinUser(@ModelAttribute UserVO vo, RedirectAttributes rttr, HttpServletResponse response) throws Exception{
 		rttr.addFlashAttribute("result", userService.joinUser(vo, response));
 		return "redirect:login_page";
 	}
 	
-	// ¸¶ÀÌÆäÀÌÁö
+	// ë§ˆì´í˜ì´ì§€
 	@GetMapping("/mypage")
 	public String mypage(Model model, HttpSession session) {
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
@@ -100,7 +101,7 @@ public class UserController {
 		return "user/mypage";
 	}
 	
-	//¸¶ÀÌÆäÀÌÁö
+	//ë§ˆì´í˜ì´ì§€
 	@RequestMapping(value = "/loadPage", method = RequestMethod.GET)
 	public String loadPage(
 	        @RequestParam(required = false) String userInfoPage,
@@ -130,13 +131,13 @@ public class UserController {
 	    }
 	}
 	
-	//¸¶ÀÌÆäÀÌÁö ÁÖ¹® ³»¿ª È­¸é
+	//ë§ˆì´í˜ì´ì§€ ì£¼ë¬¸ ë‚´ì—­ í™”ë©´
 	@GetMapping(value="/orderPage")
 	public String mypageOrder() {
 		return "user/mypage/orderPage";
 	}
 	
-	//¸¶ÀÌÆäÀÌÁö »ç¿ëÀÚ Á¤º¸ È­¸é
+	//ë§ˆì´í˜ì´ì§€ ì‚¬ìš©ì ì •ë³´ í™”ë©´
 	@GetMapping("/userInfoPage")
 	public String mypageUserInfo(UserVO vo, Model model, HttpSession session) {
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
@@ -145,14 +146,46 @@ public class UserController {
 			return "user/session_fail";
 		}
 		
+		model.addAttribute("users", loginUser);
+		
+		return "user/mypage/userInfoPage";
+	}
+	
+	//ë§ˆì´í˜ì´ì§€ ì‚¬ìš©ì ì •ë³´ ìˆ˜ì •
+	@PostMapping("/userInfoUpdate")
+	public String mypageUserUpdate(UserVO vo, HttpSession session, Model model) {
+
 		userService.updateUser(vo);
 
 		model.addAttribute("loginUser", userService.getUser(vo.getId()));
-		model.addAttribute("users", loginUser);
-		return "user/mypage/userInfoPage";
+		model.addAttribute("users", vo);
 		
+		return "redirect:mypage";
 	}
 
+	//ë§ˆì´í˜ì´ì§€ ì‚¬ìš©ì ì •ë³´ íƒˆí‡´ 
+	@ResponseBody
+	@PostMapping(value = "/userInfoDelete", produces = "application/text; charset=utf8")
+	public String memberDelete(UserVO vo, HttpSession session, SessionStatus status) throws Exception {
+
+		try {
+			UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+			String message = "";
+			
+			if (loginUser.getPwd().equals(vo.getPwd())) {
+				userService.deleteUser(loginUser.getId());
+				//ì¶”í›„ ì£¼ë¬¸ë‚´ì—­ ì¡´ì¬í•  ê²½ìš° íƒˆí‡´ ì‹œ ì£¼ë¬¸ë‚´ì—­ ì‚­ì œí•˜ëŠ” ë¡œì§ ì‘ì„±
+				status.setComplete();
+				 message = "success";
+			} else {
+				message = "fail"; 
+			}
+			
+			return message;
+		} catch (NullPointerException e) {
+			return "<script>alert('');location.href='login_page';</script>";
+		}
+	}
 
 
 }

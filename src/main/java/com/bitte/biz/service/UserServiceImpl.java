@@ -75,5 +75,10 @@ public class UserServiceImpl implements UserService {
 		userDao.updateUser(vo);
 	}
 
+	@Override	//마이페이지 회원정보 탈퇴
+	public void deleteUser(String id) throws Exception {
+		userDao.deleteUser(id);
+	}
+
 
 }

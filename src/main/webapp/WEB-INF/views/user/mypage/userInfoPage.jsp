@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<title>BITTE SCHÖN</title>
 	<link rel="shortcut icon" href="img/favicon.png">
-	<link rel="stylesheet" type="text/css" href="css/user/mypage/userInfoPage.css" />
+	<link rel="stylesheet" type="text/css" href="css/user/userInfoPage.css" />
 	<script type="text/javascript" src="js/user/mypage.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,7 +25,7 @@
 				<table>
 					<tr>
 						<th>아이디 *</th>
-						<td><input maxlength="16" id="id" type="text" value="${users.id }" readonly="readonly"></td>
+						<td><input maxlength="16" name="id" id="id" type="text" value="${users.id }" readonly="readonly"></td>
 					</tr>
 					<tr>	
 						<th></th>
@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<th>비밀번호 *</th>
-						<td><input maxlength="16" id="pwd" type="password" value="${users.pwd }" onkeyup="pwd_checkF()"></td>
+						<td><input maxlength="16" name="pwd" id="pwd" type="password" value="${users.pwd }" onkeyup="pwd_checkF()"></td>
 					</tr>
 					<tr>	
 						<th></th>
@@ -41,7 +41,7 @@
 					</tr>
 					<tr>
 						<th>비밀번호 확인 *</th>
-						<td><input type="password" maxlength="16" id="repwd" onkeyup="pwd_checkF()"></td>
+						<td><input type="password" maxlength="16" name="repwd" id="repwd" onkeyup="pwd_checkF()"></td>
 					</tr>
 					<tr>	
 						<th></th>
@@ -49,7 +49,7 @@
 					</tr>
 					<tr>
 						<th>이름 *</th>
-						<td><input maxlength="10" id="name" value="${users.name }" onkeyup="name_checkF()"></td>
+						<td><input maxlength="10" name="name" id="name" value="${users.name }" onkeyup="name_checkF()"></td>
 					</tr>
 					<tr>	
 						<th></th>
@@ -68,14 +68,14 @@
 					</tr>
 					<tr>
 						<th>휴대전화 *</th>
-						<td><input type="text" maxlength="15" id="phone" value="${users.phone }" onkeyup="phone_checkF()" oninput="hypenTel(this)"></td>
+						<td><input type="text" maxlength="15" name="phone" id="phone" value="${users.phone }" onkeyup="phone_checkF()" oninput="hypenTel(this)"></td>
 					</tr>
 					<tr>	
 						<td><span id="phone_msg"></span></td>
 					</tr>
 					<tr>
 						<th>이메일 *</th>
-						<td><input type="text" maxlength="50" id="email" value="${users.email }"></td>
+						<td><input type="text" maxlength="50" name="email" id="email" value="${users.email }"></td>
 					</tr>
 					<tr>	
 						<th></th>
@@ -85,28 +85,24 @@
 			</div>
 			<!-- 회원정보수정, 회원탈퇴 버튼 -->
 			<div class="btn">
-				<input class="btn-update" type="button" value="회원정보수정">&emsp;
-				<input class="btn-delete" type="button" value="회원탈퇴">
+				<input class="btn-update" type="button" id="btn-update" onClick="submitUpdate()" value="회원정보수정">&emsp;
+				<input class="btn-delete" type="button" id="btn-delete" onClick="submitDelete()" value="회원탈퇴">
 			</div>
 		</form>
 	</div>
-	
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="js/user/mypage.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-	window.onload = function(){
-	    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-	        //카카오 지도 발생
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+	document.getElementById("address_kakao").addEventListener("click", function(){
+	    daum.postcode.load(function() {
 	        new daum.Postcode({
-	            oncomplete: function(data) { //선택시 입력값 세팅
-	                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-	                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+	            oncomplete: function(data) {
+	                document.getElementById("address_kakao").value = data.address;
+	                document.querySelector("input[name=address_detail]").focus();
 	            }
 	        }).open();
 	    });
-	}
-</script>
+	});
+	</script>
 </html>

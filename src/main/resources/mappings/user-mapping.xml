@@ -34,8 +34,14 @@
 	
 	<!-- 마이페이지 회원정보 수정 -->
 	<update id="updateUser">
-		UPDATE users SET pwd=#{pwd}, address_kakao=#{address_kakao}, address_detail=#{address_detail}, phone=#{phone}, email=#{email}
-		where id=#{id}
+		UPDATE users SET pwd=#{pwd}, name=#{name}, address_kakao=#{address_kakao}, address_detail=#{address_detail}, phone=#{phone}, email=#{email}
+		WHERE id=#{id}
 	</update>
+	
+	<!-- 마이페이지 회원정보 탈퇴 -->
+	<delete id="deleteUser">
+		DELETE FROM users 
+		WHERE id = #{id}
+	</delete>
 		
 </mapper>
