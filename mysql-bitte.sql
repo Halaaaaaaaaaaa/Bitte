@@ -18,7 +18,6 @@ create table users (
 
 SELECT * FROM users order by userDate;
 
-
 ---------------------------------------------------------------------------------
 -- 관리자 테이블
 -- 컬럼명 : 아이디, 비번, 이름, 폰번호
@@ -104,6 +103,14 @@ VALUES (23, 'S', 50, 0),
        (23, 'M', 50, 0),
        (23, 'L', 50, 0);
 
+INSERT INTO product_size(p_code, p_size, p_size_stock, p_size_sell)
+VALUES (20, 'ONE', 50, 0);
+INSERT INTO product_size(p_code, p_size, p_size_stock, p_size_sell)
+VALUES (21, 'ONE', 50, 0);
+INSERT INTO product_size(p_code, p_size, p_size_stock, p_size_sell)
+VALUES (22, 'ONE', 50, 0);
+
+
 
 ---------------------------------------------------------------------------------
 -- 상품 이미지 테이블
@@ -153,6 +160,55 @@ create table cs (
 
 select * from cs;
 
+---------------------------------------------------------------------------------
+-- 주문 테이블
+-- 컬럼명: 주문번호, 아이디, 이름, 핸드폰, 이메일, 주소, 상세주소, 총결제금액, 주문날짜, 배송요청사항, 주문상품개수, 주문현황(1 주문완료, 2 출고완료, 3 배송완료)
+create table orders (
+	orderCode	int auto_increment primary key,
+    id			varchar(20) not null,
+				constraint fk_orders_id foreign key(id) references users(id),
+	name		varchar(15) not null,
+    phone		varchar(13) not null,
+    email		varchar(25) not null,
+    address_kakao	varchar(100) not null,
+    address_detail	varchar(50) not null,
+    totalPrice	int not null,
+    orderDate	TIMESTAMP default CURRENT_TIMESTAMP,
+    orderReq	varchar(100) default '안전하게 배송해주세요.',
+    orderCNT	int not null,
+    status		int default '1'
+);
+
+select * from orders;
+
+---------------------------------------------------------------------------------
+-- 주문상세 테이블
+-- 컬럼명: 주문상세번호, 주문번호, 상품번호, 가격, 개수
+create table orderDetail (
+	orderDetCode	int auto_increment primary key,
+    orderCode		int not null,
+					constraint fk_orderD_orderCode foreign key(orderCode) references orders(orderCode),
+	p_code			int not null,
+					constraint fk_orderD_pCode foreign key(p_code) references total_shop(p_code),
+	price			int not null,
+    cnt				int not null	
+);
+
+select * from orderDetail;
+
+---------------------------------------------------------------------------------
+-- 장바구니 테이블
+-- 컬럼명: 장바구니코드, 상품코드, 아이디, 각상품수량
+create table cart (
+	cartCode	int auto_increment primary key,
+    p_code		int not null,
+				constraint fk_cart_pCode foreign key(p_code) references total_shop(p_code),
+    id			varchar(20) not null,
+				constraint fk_cart_id foreign key(id) references users(id),
+    itemCNT		int not null
+);
+
+select * from cart;
 
 
 commit;
