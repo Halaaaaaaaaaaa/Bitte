@@ -43,9 +43,9 @@
 								<select name="size" id="size">
 									<option value='' selected> -- [필수] 옵션을 선택하세요 -- </option>
 									<option class="centered" value='dash' disabled>----------------------------------------</option>
-									<option value='S'> S</option>
-									<option value='M'> M</option>
-									<option value='L'> L</option>
+									<option value='S'>S</option>
+									<option value='M'>M</option>
+									<option value='L'>L</option>
 								</select>
 							</div><br>
 						</c:otherwise>
