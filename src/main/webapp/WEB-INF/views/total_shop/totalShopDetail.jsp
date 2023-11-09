@@ -17,7 +17,7 @@
 	    });
 	</script>
 </head>
-<body>
+<body>	
 	<div>   
 		<input type="hidden" value="${uservo.id}" id="id">
 		<div class="detail-product">
@@ -29,15 +29,20 @@
 					<c:choose>
 						<c:when test="${shop_detail.p_category ==5}">
 							<div>
-								<br>
-							</div>
+								<p>사이즈</p>
+								<select name="size" id="size">
+									<option value='' selected> -- [필수] 옵션을 선택하세요 -- </option>
+									<option class="centered" value='dash' disabled>----------------------------------------</option>
+									<option value='ONE'>ONE</option>
+								</select>
+							</div><br>
 						</c:when>
 						<c:otherwise>
 							<div>
 								<p>사이즈</p>
-								<select name="size">
+								<select name="size" id="size">
 									<option value='' selected> -- [필수] 옵션을 선택하세요 -- </option>
-									 <option class="centered" value='dash' disabled>----------------------------------------</option>
+									<option class="centered" value='dash' disabled>----------------------------------------</option>
 									<option value='S'>S</option>
 									<option value='M'>M</option>
 									<option value='L'>L</option>
@@ -47,8 +52,8 @@
 					</c:choose>
 				</div>
 				<div>
-					<button class="buy">BUY NOW</button>
-					<button class="cart">ADD TO CART</button>
+					<button class="buy" onclick="goBuy()">BUY NOW</button>
+					<button class="cart" onclick="goCart()">ADD TO CART</button>
 				</div>
 				<!-- info accodion -->
 				<div class="accodion-container">

@@ -84,7 +84,13 @@
 								<div class="mypage">
 									<input id="toggle-login" type="checkbox"></input> 
 									<label for="toggle-login" class="hamburger-login"> 
-										<a href="mypage"><span>My Page</span></a>
+										<a href="mypage"><span>MyPage</span></a>
+									</label>
+								</div>
+								<div class="cart">
+									<input id="toggle-login" type="checkbox"></input> 
+									<label for="toggle-login" class="hamburger-login"> 
+										<a href="mypage"><span>Cart</span></a>
 									</label>
 								</div>
 								<div class="logout">
