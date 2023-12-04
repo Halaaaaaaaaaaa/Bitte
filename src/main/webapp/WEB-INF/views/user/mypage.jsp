@@ -22,7 +22,7 @@
 				<p>쇼핑 정보</p> 
 				<a href="#" class="menu-button" onclick="loadPage('orderPage')">주문 내역</a>
 				<a href="#" class="menu-button" onclick="loadPage('cancelPage')">취소/반품/교환 내역</a> 
-				<a href="#" class="menu-button" onclick="loadPage('wishlistPage')">위시리스트</a>
+				<a href="#" class="menu-button" onclick="loadPage('wishListPage')">위시리스트</a>
 			</div>
 			<div>
 				<p>회원 정보</p> 

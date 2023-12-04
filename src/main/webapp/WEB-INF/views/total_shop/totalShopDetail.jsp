@@ -60,19 +60,20 @@
 				    <div>
 				        <p class="accodion-header"><b>Product Info</b></p> 
 				        <div class="accodion-content">
-				            <p>컨텐츠 내용</p> 
+				            <p>상품 정보에 대한 설명</p> 
 				        </div>
 				    </div>
 				    <div>
 				        <p class="accodion-header"><b>Exchange & Refund</b></p> 
 				        <div class="accodion-content">
-				            <p>컨텐츠 내용</p> 
+				            <p>환불 및 교환 관련 설명</p> 
 				        </div>
 				    </div>
 				</div>
 				<!-- wish list -->
 				<div id="wishList-wrapper">
-					<input type="radio" name="wish_point" value="1" id="wish_point"><label for="wish_point">💗</label>
+					<input type="radio" name="wish_point" value="1" id="wish_point" onclick="addToWishList()">
+					<label for="wish_point">💗</label>
 				</div>
 			</div>
 			<!-- 상품 이미지 -->

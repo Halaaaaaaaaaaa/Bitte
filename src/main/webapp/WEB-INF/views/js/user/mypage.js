@@ -19,6 +19,16 @@ function loadPage(orderPage) {
     });
 }
 
+//마이페이지 위시리스트 내역 페이지
+function loadPage(wishListPage) {
+    $.ajax({
+        url: wishListPage,
+        success: function (data) {
+            $('#content').html(data);
+        }
+    });
+}
+
 //비밀번호 유효성 검사
 function pwd_checkF(){
 	var pwd = $("#pwd").val();

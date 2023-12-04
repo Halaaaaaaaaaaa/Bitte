@@ -210,5 +210,34 @@ create table cart (
 
 select * from cart;
 
+---------------------------------------------------------------------------------
+-- 위시리스트 테이블
+-- 컬럼명: 회원ID, 상품코드, 찜한 날짜
+create table wish_list (
+	id varchar(20),
+		constraint fk_wishList_id foreign key(id) references users(id),
+    p_code int,
+        constraint fk_wishList_pcode foreign key(p_code) references total_shop(p_code),
+    wish_date DATETIME default CURRENT_TIMESTAMP,
+    primary key(id, p_code)
+);
+
+SELECT * FROM wish_list order by wish_date;
+
+INSERT INTO wish_list (id, p_code)
+VALUES ('heysh2', '20');
+INSERT INTO wish_list (id, p_code)
+VALUES ('heysh2', '21');
+INSERT INTO wish_list (id, p_code)
+VALUES ('heysh11', '19');
+        
+SELECT * FROM wish_list 
+WHERE id='heysh2';
+SELECT * FROM wish_list 
+WHERE id='heysh11';
+
+
+
+
 
 commit;

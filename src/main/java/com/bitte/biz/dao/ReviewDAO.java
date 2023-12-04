@@ -14,12 +14,12 @@ public class ReviewDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	//ÈÄ±â µî·Ï
+	//í›„ê¸° ë“±ë¡
 	public void insertReview(ReviewVO vo) {
 		mybatis.insert("ReviewMapper.insertReview", vo);
 	}
 	
-	//ÈÄ±â ¸®½ºÆ®
+	//í›„ê¸° ë¦¬ìŠ¤íŠ¸
 	public List<ReviewVO> reviewList(int p_code) {
 		return mybatis.selectList("ReviewMapper.reviewList", p_code);
 	}
