@@ -80,11 +80,6 @@ function scrollToTop() {
 }
 Btn.addEventListener("click", scrollToTop);
 
-
-//wish list(찜하기) 이벤트
-//추후 작성
-
-
 //주문하기 버튼 이벤트
 function goBuy() {
 	var uservo = $("#id").val();
@@ -117,4 +112,29 @@ function goCart() {
 			location.href="cartPage";
 		}
 	}
+}
+
+//위시리스트
+function addToWishList() {
+    var userId = $("#userid").val();
+    var productCode = $("#productCode").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/addToWishList",
+        data: {userId, productCode},
+        success: function (response) {
+            if (response === "login-required") {
+                alert("로그인 후 사용 가능합니다");
+                window.location.href = '/login';
+            } else if (response === "added-to-wishlist") {
+                alert("찜하기가 완료되었습니다");
+            } else {
+                alert("오류가 발생했습니다");
+            }
+        },
+        error: function () {
+            alert("오류가 발생했습니다");
+        }
+    });
 }

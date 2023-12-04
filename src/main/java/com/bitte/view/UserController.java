@@ -1,5 +1,7 @@
 package com.bitte.view;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -20,7 +22,9 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bitte.biz.dto.UserVO;
+import com.bitte.biz.dto.WishListVO;
 import com.bitte.biz.service.UserService;
+import com.bitte.biz.service.WishListService;
 
 @Controller
 @SessionAttributes("loginUser")
@@ -30,6 +34,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private WishListService wishService;
 	
 	//회원가입 화면
 	@GetMapping("/join_page")
@@ -110,7 +116,7 @@ public class UserController {
 	        @RequestParam(required = false) String productInqPage,
 	        @RequestParam(required = false) String orderPage,
 	        @RequestParam(required = false) String cancelPage,
-	        @RequestParam(required = false) String wishlistPage) {
+	        @RequestParam(required = false) String wishListPage) {
 
 	    if ("userInfoPage".equals(userInfoPage)) {
 	        return "user/mypage/userInfoPage";
@@ -124,8 +130,8 @@ public class UserController {
 	        return "user/mypage/orderPage";
 	    } else if ("cancelPage".equals(cancelPage)) {
 	        return "user/mypage/cancelPage";
-	    } else if ("wishlistPage".equals(wishlistPage)) {
-	        return "user/mypage/wishlistPage";
+	    } else if ("wishlistPage".equals(wishListPage)) {
+	        return "user/mypage/wishListPage";
 	    } else {
 	        return "user/mypage/userInfoPage";
 	    }
@@ -150,6 +156,24 @@ public class UserController {
 		
 		return "user/mypage/userInfoPage";
 	}
+	
+	//마이페이지 위시리스트 내역 화면
+	@GetMapping(value="/wishListPage")
+	public String mypageWishList(UserVO vo, Model model, HttpSession session, WishListVO wish) {
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "user/session_fail";
+		}
+		
+		List<WishListVO> wishList = wishService.allWishList(loginUser.getId());
+		
+		model.addAttribute("wishList", wishList);
+		logger.info(wishList.toString());
+		
+		return "user/mypage/wishListPage";
+	}
+
 	
 	//마이페이지 사용자 정보 수정
 	@PostMapping("/userInfoUpdate")
